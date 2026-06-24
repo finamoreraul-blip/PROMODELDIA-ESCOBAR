@@ -4,63 +4,66 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Promos 24hs Escobar</title>
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#25D366">
 <style>
-* { margin:0; padding:0; box-sizing:border-box; font-family:Arial, sans-serif }
-body { background:#0a0a0a; color:#fff; padding:10px }
-.header { text-align:center; padding:20px 10px; background:linear-gradient(135deg,#25D366,#128C7E); border-radius:12px; margin-bottom:15px }
-.header h1 { font-size:24px; margin-bottom:5px }
-.header p { font-size:14px; opacity:0.9 }
-.filters { display:flex; gap:8px; overflow-x:auto; padding:10px 0; margin-bottom:15px }
-.filter-btn { padding:8px 14px; background:#1a1a1a; border:2px solid #333; border-radius:20px; color:#aaa; cursor:pointer; white-space:nowrap; font-size:13px; transition:0.3s }
-.filter-btn.active, .filter-btn:hover { background:#25D366; border-color:#25D366; color:#000; font-weight:bold }
-.bar { background:#1a1a1a; border-radius:12px; margin-bottom:15px; overflow:hidden; border:1px solid #333 }
-.bar-img { width:100%; height:180px; object-fit:cover; cursor:pointer }
-.bar-body { padding:12px }
-.bar h3 { color:#25D366; margin-bottom:5px; font-size:18px }
-.horario-local { color:#aaa; font-size:13px; margin-bottom:10px }
-.estado-badge { background:#25D366; color:#000; padding:2px 8px; border-radius:12px; font-size:11px; font-weight:bold }
-.grid-promos { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:10px }
-.promo-item { background:#2a2a2a; padding:8px; border-radius:8px; text-align:center }
-.promo-item img { width:100%; height:80px; object-fit:cover; border-radius:6px; margin-bottom:5px; cursor:pointer }
-.promo-nombre { font-size:12px; margin-bottom:5px; height:32px; overflow:hidden }
-.btn-group { display:flex; gap:5px }
-.btn-pedir, .btn-carrito { flex:1; padding:6px; border:none; border-radius:6px; font-size:11px; cursor:pointer; font-weight:bold }
-.btn-pedir { background:#25D366; color:#000 }
-.btn-carrito { background:#444; color:#fff }
-.btn-ver-promos { width:100%; padding:10px; background:#25D366; color:#000; border:none; border-radius:8px; font-weight:bold; cursor:pointer; margin-top:10px }
-.modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:1000; overflow-y:auto }
-.modal-content { background:#1a1a1a; margin:20px auto; max-width:500px; border-radius:12px; padding:15px; position:relative }
-.modal-header { display:flex; gap:12px; margin-bottom:15px; border-bottom:1px solid #333; padding-bottom:10px }
-.modal-header img { width:80px; height:80px; object-fit:cover; border-radius:8px }
-.modal-close { position:absolute; top:10px; right:15px; font-size:28px; cursor:pointer; color:#aaa }
-.modal-promos-grid { display:grid; grid-template-columns:1fr; gap:10px; max-height:400px; overflow-y:auto }
-.modal-promo-item { background:#2a2a2a; padding:10px; border-radius:8px; display:grid; grid-template-columns:80px 1fr; gap:10px }
-.btn-pedir-modal { padding:6px 12px; background:#25D366; color:#000; border:none; border-radius:6px; font-weight:bold; cursor:pointer; font-size:12px }
-.modal-pedido { display:none }
-.modal-pedido input, .modal-pedido textarea { width:100%; padding:10px; margin:6px 0; background:#2a2a2a; border:1px solid #444; border-radius:8px; color:#fff; font-size:14px }
-.btn-whatsapp { width:100%; padding:14px; background:#25D366; color:#000; border:none; border-radius:8px; font-weight:bold; font-size:16px; cursor:pointer; margin-top:10px }
-.opcion-envio { display:flex; gap:10px; margin:10px 0 }
-.opcion-envio input[type="radio"] { display:none }
-.opcion-envio label { flex:1; padding:10px; background:#2a2a2a; border:2px solid #444; border-radius:8px; text-align:center; cursor:pointer; font-size:13px }
-.opcion-envio input[type="radio"]:checked + label { border-color:#25D366; background:#25D36620 }
-.lightbox { display:none; position:fixed; z-index:2000; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); justify-content:center; align-items:center }
-.lightbox img { max-width:90%; max-height:90%; border-radius:10px }
-.lightbox .close { position:absolute; top:20px; right:30px; font-size:40px; color:#fff; cursor:pointer }
-.floating-cart { position:fixed; bottom:20px; right:20px; background:#25D366; color:#000; width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:24px; cursor:pointer; box-shadow:0 4px 12px rgba(37,211,102,0.4); z-index:999 }
-#contador-carrito { position:absolute; top:-5px; right:-5px; background:red; color:#fff; border-radius:50%; width:22px; height:22px; font-size:12px; display:flex; align-items:center; justify-content:center; font-weight:bold }
-.btn-vaciar { background:red; color:#fff; padding:4px 8px; border:none; border-radius:6px; font-size:11px; cursor:pointer; margin-left:10px }
-@media(max-width:480px){ .grid-promos{grid-template-columns:1fr} .modal-content{margin:10px} }
+* { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+body { font-family: Arial, sans-serif; background: #0a0a0a; color: #fff; padding-bottom: 80px; }
+.header { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); padding: 20px 15px; text-align: center; position: sticky; top: 0; z-index: 100; box-shadow: 0 4px 12px rgba(0,0,0,0.4); }
+.header h1 { font-size: 24px; margin-bottom: 5px; }
+.header p { font-size: 13px; opacity: 0.9; }
+.filtros { display: flex; gap: 8px; overflow-x: auto; padding: 12px; background: #1a1a1a; border-bottom: 2px solid #25D366; scrollbar-width: none; }
+.filtros::-webkit-scrollbar { display: none; }
+.filter-btn { padding: 8px 16px; border: 2px solid #25D366; background: transparent; color: #25D366; border-radius: 20px; font-size: 13px; font-weight: bold; white-space: nowrap; cursor: pointer; transition: all 0.3s; }
+.filter-btn.active { background: #25D366; color: #0a0a0a; }
+.container { padding: 15px; }
+.bar { background: #1a1a1a; border-radius: 12px; margin-bottom: 20px; overflow: hidden; border: 1px solid #333; box-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+.bar-img { width: 100%; height: 180px; object-fit: cover; cursor: pointer; }
+.bar-body { padding: 15px; }
+.bar-body h3 { font-size: 18px; margin-bottom: 5px; color: #25D366; }
+.horario-local { font-size: 12px; color: #aaa; margin-bottom: 12px; }
+.estado-badge { display: inline-block; padding: 3px 8px; background: #25D366; color: #0a0a0a; border-radius: 4px; font-size: 10px; font-weight: bold; margin-right: 5px; }
+.grid-promos { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.promo-item { background: #2a2a2a; border-radius: 8px; padding: 8px; border: 1px solid #333; }
+.promo-item img { width: 100%; height: 110px; object-fit: cover; border-radius: 6px; margin-bottom: 8px; cursor: pointer; }
+.promo-nombre { font-size: 13px; font-weight: bold; margin-bottom: 8px; height: 36px; overflow: hidden; color: #fff; }
+.btn-group { display: flex; gap: 6px; }
+.btn-pedir { flex: 1; padding: 8px; background: #25D366; color: #0a0a0a; border: none; border-radius: 6px; font-weight: bold; font-size: 12px; cursor: pointer; }
+.btn-carrito { padding: 8px 10px; background: #ff9800; color: #0a0a0a; border: none; border-radius: 6px; font-weight: bold; font-size: 12px; cursor: pointer; }
+.btn-ver-promos { width: 100%; padding: 10px; background: transparent; border: 2px solid #25D366; color: #25D366; border-radius: 8px; font-weight: bold; font-size: 14px; cursor: pointer; margin-top: 12px; }
+.carrito-btn { position: fixed; bottom: 20px; right: 20px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4); cursor: pointer; z-index: 99; border: none; color: #0a0a0a; }
+#contador-carrito { position: absolute; top: -5px; right: -5px; background: #f44336; color: #fff; border-radius: 50%; width: 22px; height: 22px; font-size: 12px; display: flex; align-items: center; justify-content: center; font-weight: bold; border: 2px solid #0a0a0a; }.modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+.modal-content { background: #1a1a1a; border-radius: 12px; max-width: 500px; width: 100%; max-height: 90vh; overflow-y: auto; border: 2px solid #25D366; }
+.modal-header { padding: 15px; border-bottom: 1px solid #333; display: flex; align-items: center; gap: 12px; }
+.modal-header img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+.modal-header h3 { color: #25D366; font-size: 16px; margin-bottom: 3px; }
+.modal-header p { font-size: 12px; color: #aaa; }
+.modal-close { margin-left: auto; font-size: 28px; cursor: pointer; color: #aaa; }
+.modal-promos-grid { display: flex; flex-direction: column; gap: 12px; padding: 15px; }
+.modal-promo-item { background: #2a2a2a; border-radius: 8px; padding: 10px; display: flex; gap: 10px; border: 1px solid #333; }
+.btn-pedir-modal { padding: 6px 12px; background: #25D366; color: #0a0a0a; border: none; border-radius: 6px; font-weight: bold; font-size: 12px; cursor: pointer; }
+.modal-pedido { display: none; padding: 15px; }
+.modal-pedido input, .modal-pedido textarea { width: 100%; padding: 12px; margin-bottom: 10px; background: #2a2a2a; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 14px; }
+.btn-whatsapp { width: 100%; padding: 14px; background: #25D366; color: #0a0a0a; border: none; border-radius: 8px; font-weight: bold; font-size: 16px; cursor: pointer; }
+.opcion-envio { display: flex; gap: 10px; margin: 15px 0; }
+.opcion-envio input[type="radio"] { display: none; }
+.opcion-envio label { flex: 1; padding: 12px; background: #2a2a2a; border: 2px solid #333; border-radius: 8px; text-align: center; cursor: pointer; font-size: 13px; }
+.opcion-envio input[type="radio"]:checked + label { border-color: #25D366; background: rgba(37, 211, 102, 0.2); }
+.btn-vaciar { background: #f44336; color: #fff; border: none; padding: 6px 10px; border-radius: 6px; font-size: 11px; cursor: pointer; margin-left: 8px; }
+.lightbox { display: none; position: fixed; z-index: 2000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; }
+.lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+.lightbox .close { position: absolute; top: 20px; right: 35px; font-size: 40px; color: #fff; cursor: pointer; }
 </style>
 </head>
 <body>
 
 <div class="header">
-  <h1>🍕 Promos 24hs Escobar 🍔</h1>
+  <h1>Promos 24hs Escobar</h1>
   <p>Encontrá las mejores promos de tu ciudad</p>
 </div>
 
-<div class="filters">
-  <button class="filter-btn" onclick="filtrarCategoria('todos', this)">Todos</button>
+<div class="filtros">
+  <button class="filter-btn active" onclick="filtrarCategoria('todos', this)">Todos</button>
   <button class="filter-btn" onclick="filtrarCategoria('pizzeria', this)">Pizzerías</button>
   <button class="filter-btn" onclick="filtrarCategoria('parrilla', this)">Parrillas</button>
   <button class="filter-btn" onclick="filtrarCategoria('heladeria', this)">Heladerías</button>
@@ -70,75 +73,70 @@ body { background:#0a0a0a; color:#fff; padding:10px }
   <button class="filter-btn" onclick="filtrarCategoria('carniceria', this)">Carnicerías</button>
   <button class="filter-btn" onclick="filtrarCategoria('panaderia', this)">Panaderías</button>
   <button class="filter-btn" onclick="filtrarCategoria('verduleria', this)">Verdulerías</button>
+  <button class="filter-btn" onclick="filtrarCategoria('kiosco', this)">Kioscos</button>
   <button class="filter-btn" onclick="filtrarCategoria('bar', this)">Bares</button>
-  <button class="filter-btn" onclick="filtrarCategoria('kiosco', this)">Kioscos 24hs</button>
 </div>
 
-<div class="floating-cart" onclick="abrirCarritoModal()">
-  🛒
-  <span id="contador-carrito">(0)</span>
-</div>
-
-<div id="locales-container">
+<div class="container">
 
 <!-- 1 PIZZERIA -->
-<div class="bar" id="bar-1" data-categoria="pizzeria" data-nombre="Pizzería El Horno Escobar" data-direccion="Av. 25 de Mayo 1234" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" data-promos='[{"nombre":"Muzza Grande 8 Porciones","precio":5500,"desc":"Muzza muzzarella derretida","img":"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"},{"nombre":"Fugazzeta Premium","precio":6200,"desc":"Cebolla caramelizada","img":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"},{"nombre":"2x1 Empanadas Carne","precio":4200,"desc":"Docena horno de barro","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Combo Familia 3 Pizzas","precio":15500,"desc":"3 grandes a elección","img":"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pizzería El Horno Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 19 a 2hs Mar a Dom</p>
+<div class="bar" id="bar-1" data-categoria="pizzeria" data-nombre="Pizzería La Muza Escobar" data-direccion="Av. Tapia 1234" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" data-promos='[{"nombre":"2 Pizzas Muzza Grande","precio":8900,"desc":"Muzza + Gaseosa 2.25L","img":"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop"},{"nombre":"Promo 3x2 Empanadas","precio":7500,"desc":"Docena carne, pollo, jyq","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Pizza Especial + Birra","precio":9800,"desc":"Jamon, morron, aceitunas","img":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"},{"nombre":"Fugazzeta Rellena","precio":8500,"desc":"Con cebolla caramelizada","img":"https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pizzería La Muza Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 2hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"><div class="promo-nombre">Muzza Grande 8 Porciones</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería El Horno Escobar','Muzza Grande 8 Porciones',5500)">Pedir $5500</button><button class="btn-carrito" data-local="Pizzería El Horno Escobar" data-promo="Muzza Grande 8 Porciones" data-precio="5500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Fugazzeta Premium</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería El Horno Escobar','Fugazzeta Premium',6200)">Pedir $6200</button><button class="btn-carrito" data-local="Pizzería El Horno Escobar" data-promo="Fugazzeta Premium" data-precio="6200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Empanadas Carne</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería El Horno Escobar','2x1 Empanadas Carne',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Pizzería El Horno Escobar" data-promo="2x1 Empanadas Carne" data-precio="4200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familia 3 Pizzas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería El Horno Escobar','Combo Familia 3 Pizzas',15500)">Pedir $15500</button><button class="btn-carrito" data-local="Pizzería El Horno Escobar" data-promo="Combo Familia 3 Pizzas" data-precio="15500">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Pizzería El Horno Escobar" data-direccion="Av. 25 de Mayo 1234" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop"><div class="promo-nombre">2 Pizzas Muzza Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería La Muza Escobar','2 Pizzas Muzza Grande',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Pizzería La Muza Escobar" data-promo="2 Pizzas Muzza Grande" data-precio="8900">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Promo 3x2 Empanadas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería La Muza Escobar','Promo 3x2 Empanadas',7500)">Pedir $7500</button><button class="btn-carrito" data-local="Pizzería La Muza Escobar" data-promo="Promo 3x2 Empanadas" data-precio="7500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Pizza Especial + Birra</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería La Muza Escobar','Pizza Especial + Birra',9800)">Pedir $9800</button><button class="btn-carrito" data-local="Pizzería La Muza Escobar" data-promo="Pizza Especial + Birra" data-precio="9800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?w=200&h=110&fit=crop"><div class="promo-nombre">Fugazzeta Rellena</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería La Muza Escobar','Fugazzeta Rellena',8500)">Pedir $8500</button><button class="btn-carrito" data-local="Pizzería La Muza Escobar" data-promo="Fugazzeta Rellena" data-precio="8500">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Pizzería La Muza Escobar" data-direccion="Av. Tapia 1234" data-img="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 2 PARRILLA -->
-<div class="bar" id="bar-2" data-categoria="parrilla" data-nombre="Parrilla Don Cacho Escobar" data-direccion="Ruta 26 Km 4.5" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado Tira 2kg","precio":22000,"desc":"2kg cortada gruesa","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Matambre a la Pizza","precio":11500,"desc":"Completo con muzzarella","img":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"},{"nombre":"Chorizos Criollos x4","precio":4200,"desc":"4 unidades artesanales","img":"https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"},{"nombre":"Combo 4 Personas","precio":38000,"desc":"Completo para 4","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Parrilla Don Cacho Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 12 a 15hs y 20 a 00hs</p>
+<div class="bar" id="bar-2" data-categoria="parrilla" data-nombre="Parrilla El Gaucho Escobar" data-direccion="Ruta 25 Km 10" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Asado 2kg + Ensalada","precio":18500,"desc":"Para 4 personas","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Vacío Completo 1.5kg","precio":16500,"desc":"Tierno y jugoso","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Costillar 3kg","precio":32000,"desc":"Para 6 personas","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Choripanes x6","precio":8900,"desc":"Pan casero + chimichurri","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="bar-body"><h3>Parrilla El Gaucho Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 12 a 16hs y 20 a 1hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado Tira 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla Don Cacho Escobar','Asado Tira 2kg',22000)">Pedir $22000</button><button class="btn-carrito" data-local="Parrilla Don Cacho Escobar" data-promo="Asado Tira 2kg" data-precio="22000">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Matambre a la Pizza</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla Don Cacho Escobar','Matambre a la Pizza',11500)">Pedir $11500</button><button class="btn-carrito" data-local="Parrilla Don Cacho Escobar" data-promo="Matambre a la Pizza" data-precio="11500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=200&h=110&fit=crop"><div class="promo-nombre">Chorizos Criollos x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla Don Cacho Escobar','Chorizos Criollos x4',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Parrilla Don Cacho Escobar" data-promo="Chorizos Criollos x4" data-precio="4200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo 4 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla Don Cacho Escobar','Combo 4 Personas',38000)">Pedir $38000</button><button class="btn-carrito" data-local="Parrilla Don Cacho Escobar" data-promo="Combo 4 Personas" data-precio="38000">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Parrilla Don Cacho Escobar" data-direccion="Ruta 26 Km 4.5" data-img="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Asado 2kg + Ensalada</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Gaucho Escobar','Asado 2kg + Ensalada',18500)">Pedir $18500</button><button class="btn-carrito" data-local="Parrilla El Gaucho Escobar" data-promo="Asado 2kg + Ensalada" data-precio="18500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Vacío Completo 1.5kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Gaucho Escobar','Vacío Completo 1.5kg',16500)">Pedir $16500</button><button class="btn-carrito" data-local="Parrilla El Gaucho Escobar" data-promo="Vacío Completo 1.5kg" data-precio="16500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Costillar 3kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Gaucho Escobar','Costillar 3kg',32000)">Pedir $32000</button><button class="btn-carrito" data-local="Parrilla El Gaucho Escobar" data-promo="Costillar 3kg" data-precio="32000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Choripanes x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Gaucho Escobar','Choripanes x6',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Parrilla El Gaucho Escobar" data-promo="Choripanes x6" data-precio="8900">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Parrilla El Gaucho Escobar" data-direccion="Ruta 25 Km 10" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 3 HELADERIA -->
-<div class="bar" id="bar-3" data-categoria="heladeria" data-nombre="Heladería Dolce Escobar" data-direccion="Calle Sarmiento 852" data-img="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&h=300&fit=crop" data-promos='[{"nombre":"1/4 Helado 3 Gustos","precio":3800,"desc":"1/4kg 3 gustos a elección","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"},{"nombre":"Bombón Suizo x6","precio":3200,"desc":"6 unidades bañadas","img":"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"},{"nombre":"Alfajor Helado x4","precio":2800,"desc":"4 unidades premium","img":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"},{"nombre":"Torta Helada 1kg","precio":12000,"desc":"1kg para compartir","img":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&h=300&fit=crop"><div class="bar-body"><h3>Heladería Dolce Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 14 a 23hs todos los días</p>
+<div class="bar" id="bar-3" data-categoria="heladeria" data-nombre="Heladería Cremolatti Escobar" data-direccion="Calle Estrada 456" data-img="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" data-promos='[{"nombre":"1/4kg 3 Gustos","precio":4800,"desc":"1/4kg a elección","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"},{"nombre":"Postre Helado 1kg","precio":12500,"desc":"Bombón suizo","img":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"},{"nombre":"Cucurucho 2 Bochas","precio":2800,"desc":"Gustos a elección","img":"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"1/2kg Familiar","precio":8500,"desc":"4 gustos + cucuruchos","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="bar-body"><h3>Heladería Cremolatti Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 13 a 23hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/4 Helado 3 Gustos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Escobar','1/4 Helado 3 Gustos',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Heladería Dolce Escobar" data-promo="1/4 Helado 3 Gustos" data-precio="3800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Bombón Suizo x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Escobar','Bombón Suizo x6',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Heladería Dolce Escobar" data-promo="Bombón Suizo x6" data-precio="3200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Alfajor Helado x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Escobar','Alfajor Helado x4',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Heladería Dolce Escobar" data-promo="Alfajor Helado x4" data-precio="2800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Torta Helada 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Dolce Escobar','Torta Helada 1kg',12000)">Pedir $12000</button><button class="btn-carrito" data-local="Heladería Dolce Escobar" data-promo="Torta Helada 1kg" data-precio="12000">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Heladería Dolce Escobar" data-direccion="Calle Sarmiento 852" data-img="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/4kg 3 Gustos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Cremolatti Escobar','1/4kg 3 Gustos',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Heladería Cremolatti Escobar" data-promo="1/4kg 3 Gustos" data-precio="4800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Postre Helado 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Cremolatti Escobar','Postre Helado 1kg',12500)">Pedir $12500</button><button class="btn-carrito" data-local="Heladería Cremolatti Escobar" data-promo="Postre Helado 1kg" data-precio="12500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Cucurucho 2 Bochas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Cremolatti Escobar','Cucurucho 2 Bochas',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Heladería Cremolatti Escobar" data-promo="Cucurucho 2 Bochas" data-precio="2800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">1/2kg Familiar</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Heladería Cremolatti Escobar','1/2kg Familiar',8500)">Pedir $8500</button><button class="btn-carrito" data-local="Heladería Cremolatti Escobar" data-promo="1/2kg Familiar" data-precio="8500">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Heladería Cremolatti Escobar" data-direccion="Calle Estrada 456" data-img="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 4 CAFETERIA -->
-<div class="bar" id="bar-4" data-categoria="cafeteria" data-nombre="Café Central Escobar" data-direccion="Av. Tapia de Cruz 567" data-img="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop" data-promos='[{"nombre":"Desayuno Completo","precio":3200,"desc":"Café + 2 medialunas","img":"https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=200&h=110&fit=crop"},{"nombre":"Tostado Jamón y Queso","precio":2800,"desc":"Con pan de campo","img":"https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"},{"nombre":"Lic 2x1 de 16 a 18hs","precio":2400,"desc":"Licuado de frutas","img":"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"},{"nombre":"Torta + Café Grande","precio":3600,"desc":"Porción generosa","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop"><div class="bar-body"><h3>Café Central Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 7 a 22hs Lun a Sáb</p>
+<div class="bar" id="bar-4" data-categoria="cafeteria" data-nombre="Café Central Escobar" data-direccion="Av. 25 de Mayo 789" data-img="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop" data-promos='[{"nombre":"Desayuno Completo","precio":3200,"desc":"Café + 2 tostadas + jugo","img":"https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=200&h=110&fit=crop"},{"nombre":"Merienda 2 Personas","precio":4500,"desc":"2 cafés + 4 facturas","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"},{"nombre":"Licuado + Tostado","precio":3800,"desc":"Banana o frutilla","img":"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"},{"nombre":"Sándwich de Miga x8","precio":5200,"desc":"Jamón y queso","img":"https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop"><div class="bar-body"><h3>Café Central Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 21hs Lun a Dom</p>
 <div class="grid-promos">
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=200&h=110&fit=crop"><div class="promo-nombre">Desayuno Completo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Desayuno Completo',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Desayuno Completo" data-precio="3200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"><div class="promo-nombre">Tostado Jamón y Queso</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Tostado Jamón y Queso',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Tostado Jamón y Queso" data-precio="2800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"><div class="promo-nombre">Lic 2x1 de 16 a 18hs</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Lic 2x1 de 16 a 18hs',2400)">Pedir $2400</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Lic 2x1 de 16 a 18hs" data-precio="2400">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Torta + Café Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Torta + Café Grande',3600)">Pedir $3600</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Torta + Café Grande" data-precio="3600">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Café Central Escobar" data-direccion="Av. Tapia de Cruz 567" data-img="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Merienda 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Merienda 2 Personas',4500)">Pedir $4500</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Merienda 2 Personas" data-precio="4500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"><div class="promo-nombre">Licuado + Tostado</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Licuado + Tostado',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Licuado + Tostado" data-precio="3800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"><div class="promo-nombre">Sándwich de Miga x8</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Café Central Escobar','Sándwich de Miga x8',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Café Central Escobar" data-promo="Sándwich de Miga x8" data-precio="5200">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Café Central Escobar" data-direccion="Av. 25 de Mayo 789" data-img="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 5 POLLERIA -->
-<div class="bar" id="bar-5" data-categoria="polleria" data-nombre="Pollería El Pollo Escobar" data-direccion="Calle Belén 432" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pollo Entero a la Parrilla","precio":8900,"desc":"Con papas rústicas","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"},{"nombre":"Milanesa Napolitana","precio":4200,"desc":"Con guarnición","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"},{"nombre":"2x1 Empanadas de Pollo","precio":3800,"desc":"Docena","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Combo Familiar","precio":16500,"desc":"2 pollos + papas","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pollería El Pollo Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 19 a 23hs</p>
+<div class="bar" id="bar-5" data-categoria="polleria" data-nombre="Pollería Don Pepe Escobar" data-direccion="Calle 11 234" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pollo al Spiedo + Papas","precio":8900,"desc":"Pollo entero asado","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"},{"nombre":"Supremas Napo x4","precio":7200,"desc":"Con guarnición","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"},{"nombre":"Hamburguesas x8","precio":5800,"desc":"Caseras 120gr c/u","img":"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"},{"nombre":"Milanesas de Pollo x6","precio":6500,"desc":"Lista para freír","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pollería Don Pepe Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 10 a 15hs y 18 a 22hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo Entero a la Parrilla</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería El Pollo Escobar','Pollo Entero a la Parrilla',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Pollería El Pollo Escobar" data-promo="Pollo Entero a la Parrilla" data-precio="8900">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesa Napolitana</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería El Pollo Escobar','Milanesa Napolitana',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Pollería El Pollo Escobar" data-promo="Milanesa Napolitana" data-precio="4200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">2x1 Empanadas de Pollo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería El Pollo Escobar','2x1 Empanadas de Pollo',3800)">Pedir $3800</button><button class="btn-carrito" data-local="Pollería El Pollo Escobar" data-promo="2x1 Empanadas de Pollo" data-precio="3800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Familiar</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería El Pollo Escobar','Combo Familiar',16500)">Pedir $16500</button><button class="btn-carrito" data-local="Pollería El Pollo Escobar" data-promo="Combo Familiar" data-precio="16500">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Pollería El Pollo Escobar" data-direccion="Calle Belén 432" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo al Spiedo + Papas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería Don Pepe Escobar','Pollo al Spiedo + Papas',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Pollería Don Pepe Escobar" data-promo="Pollo al Spiedo + Papas" data-precio="8900">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"><div class="promo-nombre">Supremas Napo x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería Don Pepe Escobar','Supremas Napo x4',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Pollería Don Pepe Escobar" data-promo="Supremas Napo x4" data-precio="7200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"><div class="promo-nombre">Hamburguesas x8</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería Don Pepe Escobar','Hamburguesas x8',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Pollería Don Pepe Escobar" data-promo="Hamburguesas x8" data-precio="5800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Milanesas de Pollo x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pollería Don Pepe Escobar','Milanesas de Pollo x6',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Pollería Don Pepe Escobar" data-promo="Milanesas de Pollo x6" data-precio="6500">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Pollería Don Pepe Escobar" data-direccion="Calle 11 234" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 6 ROTISERIA -->
-<div class="bar" id="bar-6" data-categoria="rotiseria" data-nombre="Rotisería La Casera Escobar" data-direccion="Av. Eugenia Tapia 741" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" data-promos='[{"nombre":"Vianda 3 Comidas","precio":7800,"desc":"Elegí 3 platos del día","img":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"},{"nombre":"Tarta Casera + Ensalada","precio":5200,"desc":"Porción grande","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"},{"nombre":"Empanadas Docena Horno","precio":6400,"desc":"Carne, jamón y queso","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Milanesa Completa","precio":5800,"desc":"Con puré y ensalada","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop"><div class="bar-body"><h3>Rotisería La Casera Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 10 a 15hs y 19 a 22hs</p>
+<div class="bar" id="bar-6" data-categoria="rotiseria" data-nombre="Rotisería La Casera Escobar" data-direccion="Av. Eugenia Tapia741" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" data-promos='[{"nombre":"Milanesa Napo + Papas","precio":6200,"desc":"Porción grande","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"},{"nombre":"Tarta Casera + Ensalada","precio":5200,"desc":"Pollo, jamón y queso","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"},{"nombre":"Empanadas Docena Horno","precio":6400,"desc":"Carne, pollo, jyq","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Milanesa Completa","precio":5800,"desc":"Jamón, queso, huevo","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop"><div class="bar-body"><h3>Rotisería La Casera Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 19 a 23hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"><div class="promo-nombre">Vianda 3 Comidas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Vianda 3 Comidas',7800)">Pedir $7800</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Vianda 3 Comidas" data-precio="7800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesa Napo + Papas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Milanesa Napo + Papas',6200)">Pedir $6200</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Milanesa Napo + Papas" data-precio="6200">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Tarta Casera + Ensalada</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Tarta Casera + Ensalada',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Tarta Casera + Ensalada" data-precio="5200">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Empanadas Docena Horno</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Empanadas Docena Horno',6400)">Pedir $6400</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Empanadas Docena Horno" data-precio="6400">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"><div class="promo-nombre">Milanesa Completa</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Milanesa Completa',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Milanesa Completa" data-precio="5800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Milanesa Completa</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería La Casera Escobar','Milanesa Completa',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Rotisería La Casera Escobar" data-promo="Milanesa Completa" data-precio="5800">+ Carrito</button></div></div>
 </div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Rotisería La Casera Escobar" data-direccion="Av. Eugenia Tapia 741" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 7 CARNICERIA -->
@@ -199,420 +197,320 @@ body { background:#0a0a0a; color:#fff; padding:10px }
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?w=200&h=110&fit=crop"><div class="promo-nombre">Sushi para 2 Personas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Sushi Express Escobar','Sushi para 2 Personas',19500)">Pedir $19500</button><button class="btn-carrito" data-local="Sushi Express Escobar" data-promo="Sushi para 2 Personas" data-precio="19500">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Temakis x3</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Sushi Express Escobar','Temakis x3',6800)">Pedir $6800</button><button class="btn-carrito" data-local="Sushi Express Escobar" data-promo="Temakis x3" data-precio="6800">+ Carrito</button></div></div>
 <div class="promo-item"><img src="https://images.unsplash.com/photo-1617196035154-1e7e6e28b0db?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Promo 80 Piezas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Sushi Express Escobar','Promo 80 Piezas',22000)">Pedir $22000</button><button class="btn-carrito" data-local="Sushi Express Escobar" data-promo="Promo 80 Piezas" data-precio="22000">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Sushi Express Escobar" data-direccion="Calle Mitre 789" data-img="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
-
-<!-- 13 PIZZERIA 2 -->
-<div class="bar" id="bar-13" data-categoria="pizzeria" data-nombre="Pizzería Napoli Escobar" data-direccion="Av. 9 de Julio 234" data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pizza Especial Grande","precio":5900,"desc":"Muzza, jamón, morrón","img":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"},{"nombre":"2 Pizzas + Gaseosa 2.25L","precio":13500,"desc":"Grandes a elección","img":"https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop"},{"nombre":"Empanadas x12","precio":5200,"desc":"Carne, jamón y queso","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Faina x2","precio":2200,"desc":"Porciones grandes","img":"https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop"><div class="bar-body"><h3>Pizzería Napoli Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 2hs todos los días</p>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Sushi Express Escobar" data-direccion="Calle Mitre 789" data-img="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div> <!-- 13 CARNICERIA 2 -->
+<div class="bar" id="bar-13" data-categoria="carniceria" data-nombre="Carnicería La Tablita Escobar" data-direccion="Ruta 26 Km 8" data-img="https://images.unsplash.com/photo-1607623814075-e51f47b0b6ed?w=400&h=300&fit=crop" data-promos='[{"nombre":"Costeleta Cerdo 3kg","precio":16500,"desc":"Corte especial","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Pollo Entero x2","precio":8900,"desc":"2 pollos frescos","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"},{"nombre":"Chorizos x12","precio":7200,"desc":"Caseros puro cerdo","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Vacío 1kg","precio":9800,"desc":"Tierno y jugoso","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1607623814075-e51f47b0b6ed?w=400&h=300&fit=crop"><div class="bar-body"><h3>Carnicería La Tablita Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 13hs y 17 a 20:30hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop"><div class="promo-nombre">Pizza Especial Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Napoli Escobar','Pizza Especial Grande',5900)">Pedir $5900</button><button class="btn-carrito" data-local="Pizzería Napoli Escobar" data-promo="Pizza Especial Grande" data-precio="5900">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=200&h=110&fit=crop"><div class="promo-nombre">2 Pizzas + Gaseosa 2.25L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Napoli Escobar','2 Pizzas + Gaseosa 2.25L',13500)">Pedir $13500</button><button class="btn-carrito" data-local="Pizzería Napoli Escobar" data-promo="2 Pizzas + Gaseosa 2.25L" data-precio="13500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Empanadas x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Napoli Escobar','Empanadas x12',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Pizzería Napoli Escobar" data-promo="Empanadas x12" data-precio="5200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Faina x2</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Pizzería Napoli Escobar','Faina x2',2200)">Pedir $2200</button><button class="btn-carrito" data-local="Pizzería Napoli Escobar" data-promo="Faina x2" data-precio="2200">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Pizzería Napoli Escobar" data-direccion="Av. 9 de Julio 234" data-img="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Costeleta Cerdo 3kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Tablita Escobar','Costeleta Cerdo 3kg',16500)">Pedir $16500</button><button class="btn-carrito" data-local="Carnicería La Tablita Escobar" data-promo="Costeleta Cerdo 3kg" data-precio="16500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo Entero x2</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Tablita Escobar','Pollo Entero x2',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Carnicería La Tablita Escobar" data-promo="Pollo Entero x2" data-precio="8900">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Chorizos x12</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Tablita Escobar','Chorizos x12',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Carnicería La Tablita Escobar" data-promo="Chorizos x12" data-precio="7200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Vacío 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Carnicería La Tablita Escobar','Vacío 1kg',9800)">Pedir $9800</button><button class="btn-carrito" data-local="Carnicería La Tablita Escobar" data-promo="Vacío 1kg" data-precio="9800">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Carnicería La Tablita Escobar" data-direccion="Ruta 26 Km 8" data-img="https://images.unsplash.com/photo-1607623814075-e51f47b0b6ed?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
-<!-- 14 PARRILLA 2 -->
-<div class="bar" id="bar-14" data-categoria="parrilla" data-nombre="Parrilla El Fogón Escobar" data-direccion="Ruta 8 Km 58" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" data-promos='[{"nombre":"Vacío 1.5kg","precio":18500,"desc":"Tierno y jugoso","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"},{"nombre":"Costillar Completo","precio">42000,"desc":"Para 6 personas","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"},{"nombre":"Chinchulines + Mollejas","precio":9800,"desc":"Porción grande","img":"https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Combo Parrillada 4 Pers","precio":32000,"desc":"Completo con guarnición","img":"https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop"><div class="bar-body"><h3>Parrilla El Fogón Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 12 a 16hs y 20 a 1hs</p>
+<!-- 14 PANADERIA 2 -->
+<div class="bar" id="bar-14" data-categoria="panaderia" data-nombre="Panadería El Sol Escobar" data-direccion="Calle Sarmiento 567" data-img="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" data-promos='[{"nombre":"Facturas Manteca x24","precio":6500,"desc":"Docena y media","img":"https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"},{"nombre":"Pan de Campo","precio":2800,"desc":"Kg horno leña","img":"https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=200&h=110&fit=crop"},{"nombre":"Rosca de Pascua","precio":5200,"desc":"Con crema pastelera","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"},{"nombre":"Tarta Frutilla","precio":4800,"desc":"Grande 24cm","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop"><div class="bar-body"><h3>Panadería El Sol Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 5:30 a 21hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop"><div class="promo-nombre">Vacío 1.5kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón Escobar','Vacío 1.5kg',18500)">Pedir $18500</button><button class="btn-carrito" data-local="Parrilla El Fogón Escobar" data-promo="Vacío 1.5kg" data-precio="18500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop"><div class="promo-nombre">Costillar Completo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón Escobar','Costillar Completo',42000)">Pedir $42000</button><button class="btn-carrito" data-local="Parrilla El Fogón Escobar" data-promo="Costillar Completo" data-precio="42000">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Chinchulines + Mollejas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón Escobar','Chinchulines + Mollejas',9800)">Pedir $9800</button><button class="btn-carrito" data-local="Parrilla El Fogón Escobar" data-promo="Chinchulines + Mollejas" data-precio="9800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Parrillada 4 Pers</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Parrilla El Fogón Escobar','Combo Parrillada 4 Pers',32000)">Pedir $32000</button><button class="btn-carrito" data-local="Parrilla El Fogón Escobar" data-promo="Combo Parrillada 4 Pers" data-precio="32000">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Parrilla El Fogón Escobar" data-direccion="Ruta 8 Km 58" data-img="https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=200&h=110&fit=crop"><div class="promo-nombre">Facturas Manteca x24</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Sol Escobar','Facturas Manteca x24',6500)">Pedir $6500</button><button class="btn-carrito" data-local="Panadería El Sol Escobar" data-promo="Facturas Manteca x24" data-precio="6500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?w=200&h=110&fit=crop"><div class="promo-nombre">Pan de Campo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Sol Escobar','Pan de Campo',2800)">Pedir $2800</button><button class="btn-carrito" data-local="Panadería El Sol Escobar" data-promo="Pan de Campo" data-precio="2800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Rosca de Pascua</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Sol Escobar','Rosca de Pascua',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Panadería El Sol Escobar" data-promo="Rosca de Pascua" data-precio="5200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tarta Frutilla</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Panadería El Sol Escobar','Tarta Frutilla',4800)">Pedir $4800</button><button class="btn-carrito" data-local="Panadería El Sol Escobar" data-promo="Tarta Frutilla" data-precio="4800">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Panadería El Sol Escobar" data-direccion="Calle Sarmiento 567" data-img="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
-<!-- 15 HELADERIA 2 -->
-<div class="bar" id="bar-15" data-categoria="heladeria" data-nombre="Freddo Escobar" data-direccion="Av. 25 de Mayo 998" data-img="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" data-promos='[{"nombre":"1/2kg 4 Gustos","precio":7200,"desc":"1/2kg a elección","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"},{"nombre":"Cucurucho 3 Bochas","precio":3400,"desc":"Gustos premium","img":"https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"},{"nombre":"Postre Helado 1kg","precio":14500,"desc":"Bombón suizo","img":"https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"},{"nombre":"2x1 Helado 1/4kg","precio":5800,"desc":"Lun a Jue","img":"https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop"><div class="bar-body"><h3>Freddo Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 13 a 23hs todos los días</p>
+<!-- 15 VERDULERIA 2 -->
+<div class="bar" id="bar-15" data-categoria="verduleria" data-nombre="Verdulería Frescos del Sol Escobar" data-direccion="Av. Patricias Argentinas 234" data-img="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop" data-promos='[{"nombre":"Bolsón Frutas 5kg","precio":6800,"desc":"Mix estación","img":"https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=200&h=110&fit=crop"},{"nombre":"Verduras Congeladas 2kg","precio":4200,"desc":"Mix para wok","img":"https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Frutillas 2kg","precio":8900,"desc":"Dulces y frescas","img":"https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Combo Sopita","precio":3200,"desc":"Zanahoria, papa, cebolla","img":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop"><div class="bar-body"><h3>Verdulería Frescos del Sol Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 7 a 20hs Lun a Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop"><div class="promo-nombre">1/2kg 4 Gustos</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Freddo Escobar','1/2kg 4 Gustos',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Freddo Escobar" data-promo="1/2kg 4 Gustos" data-precio="7200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=200&h=110&fit=crop"><div class="promo-nombre">Cucurucho 3 Bochas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Freddo Escobar','Cucurucho 3 Bochas',3400)">Pedir $3400</button><button class="btn-carrito" data-local="Freddo Escobar" data-promo="Cucurucho 3 Bochas" data-precio="3400">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1570197788417-0e82375c9371?w=200&h=110&fit=crop"><div class="promo-nombre">Postre Helado 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Freddo Escobar','Postre Helado 1kg',14500)">Pedir $14500</button><button class="btn-carrito" data-local="Freddo Escobar" data-promo="Postre Helado 1kg" data-precio="14500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1495147466023-ac5c588e2e94?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">2x1 Helado 1/4kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Freddo Escobar','2x1 Helado 1/4kg',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Freddo Escobar" data-promo="2x1 Helado 1/4kg" data-precio="5800">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Freddo Escobar" data-direccion="Av. 25 de Mayo 998" data-img="https://images.unsplash.com/photo-1501443762994-82bd5dace89a?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=200&h=110&fit=crop"><div class="promo-nombre">Bolsón Frutas 5kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescos del Sol Escobar','Bolsón Frutas 5kg',6800)">Pedir $6800</button><button class="btn-carrito" data-local="Verdulería Frescos del Sol Escobar" data-promo="Bolsón Frutas 5kg" data-precio="6800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Verduras Congeladas 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescos del Sol Escobar','Verduras Congeladas 2kg',4200)">Pedir $4200</button><button class="btn-carrito" data-local="Verdulería Frescos del Sol Escobar" data-promo="Verduras Congeladas 2kg" data-precio="4200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1519996529931-28324d5a630e?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Frutillas 2kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescos del Sol Escobar','Frutillas 2kg',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Verdulería Frescos del Sol Escobar" data-promo="Frutillas 2kg" data-precio="8900">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Sopita</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Verdulería Frescos del Sol Escobar','Combo Sopita',3200)">Pedir $3200</button><button class="btn-carrito" data-local="Verdulería Frescos del Sol Escobar" data-promo="Combo Sopita" data-precio="3200">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Verdulería Frescos del Sol Escobar" data-direccion="Av. Patricias Argentinas 234" data-img="https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
-<!-- 16 CAFETERIA 2 -->
-<div class="bar" id="bar-16" data-categoria="cafeteria" data-nombre="La Violeta Café Escobar" data-direccion="Calle Estrada 567" data-img="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop" data-promos='[{"nombre":"Merienda para 2","precio":5200,"desc":"2 cafés + 4 facturas","img":"https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=200&h=110&fit=crop"},{"nombre":"Capuccino + Torta","precio":3800,"desc":"Porción grande","img":"https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"},{"nombre":"Licuado Proteico","precio":3200,"desc":"Banana + avena","img":"https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"},{"nombre":"Sándwich Miga x6","precio":4800,"desc":"Jamón y queso","img":"https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop"><div class="bar-body"><h3>La Violeta Café Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 8 a 21hs Lun a Dom</p>
+<!-- 16 BAR 2 -->
+<div class="bar" id="bar-16" data-categoria="bar" data-nombre="Bar La Esquina Escobar" data-direccion="Calle Belgrano 890" data-img="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" data-promos='[{"nombre":"Promo Whisky + Hielo","precio":12500,"desc":"Botella + hielo","img":"https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=110&fit=crop"},{"nombre":"Hamburguesa Completa x2","precio":7800,"desc":"Con papas fritas","img":"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"},{"nombre":"Promo Gin Tonic x3","precio":9500,"desc":"Gin + tónica + limón","img":"https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"},{"nombre":"Nachos con Cheddar","precio":5200,"desc":"Porción grande","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop"><div class="bar-body"><h3>Bar La Esquina Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 20 a 5hs Vie y Sáb</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=200&h=110&fit=crop"><div class="promo-nombre">Merienda para 2</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('La Violeta Café Escobar','Merienda para 2',5200)">Pedir $5200</button><button class="btn-carrito" data-local="La Violeta Café Escobar" data-promo="Merienda para 2" data-precio="5200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=200&h=110&fit=crop"><div class="promo-nombre">Capuccino + Torta</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('La Violeta Café Escobar','Capuccino + Torta',3800)">Pedir $3800</button><button class="btn-carrito" data-local="La Violeta Café Escobar" data-promo="Capuccino + Torta" data-precio="3800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=200&h=110&fit=crop"><div class="promo-nombre">Licuado Proteico</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('La Violeta Café Escobar','Licuado Proteico',3200)">Pedir $3200</button><button class="btn-carrito" data-local="La Violeta Café Escobar" data-promo="Licuado Proteico" data-precio="3200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1528735602786-2552fd46c7af?w=200&h=110&fit=crop"><div class="promo-nombre">Sándwich Miga x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('La Violeta Café Escobar','Sándwich Miga x6',4800)">Pedir $4800</button><button class="btn-carrito" data-local="La Violeta Café Escobar" data-promo="Sándwich Miga x6" data-precio="4800">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="La Violeta Café Escobar" data-direccion="Calle Estrada 567" data-img="https://images.unsplash.com/photo-1485808549092-2b320b55e257?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Whisky + Hielo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Esquina Escobar','Promo Whisky + Hielo',12500)">Pedir $12500</button><button class="btn-carrito" data-local="Bar La Esquina Escobar" data-promo="Promo Whisky + Hielo" data-precio="12500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"><div class="promo-nombre">Hamburguesa Completa x2</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Esquina Escobar','Hamburguesa Completa x2',7800)">Pedir $7800</button><button class="btn-carrito" data-local="Bar La Esquina Escobar" data-promo="Hamburguesa Completa x2" data-precio="7800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1608270586620-248524c67de9?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Gin Tonic x3</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Esquina Escobar','Promo Gin Tonic x3',9500)">Pedir $9500</button><button class="btn-carrito" data-local="Bar La Esquina Escobar" data-promo="Promo Gin Tonic x3" data-precio="9500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Nachos con Cheddar</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Bar La Esquina Escobar','Nachos con Cheddar',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Bar La Esquina Escobar" data-promo="Nachos con Cheddar" data-precio="5200">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Bar La Esquina Escobar" data-direccion="Calle Belgrano 890" data-img="https://images.unsplash.com/photo-1514933651103-005eec06c04b?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
-<!-- 17 POLLERIA 2 -->
-<div class="bar" id="bar-17" data-categoria="polleria" data-nombre="Granja Don José Escobar" data-direccion="Ruta 26 Km 8" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" data-promos='[{"nombre":"Pollo al Horno + Papas","precio":9500,"desc":"Pollo entero","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"},{"nombre":"Supremas x4","precio":7800,"desc":"Napo o a la plancha","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"},{"nombre":"Hamburguesas x6","precio":6200,"desc":"Caseras 120gr","img":"https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"},{"nombre":"Combo Milanga + Puré","precio":8900,"desc":"2 milanesas grandes","img":"https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop"><div class="bar-body"><h3>Granja Don José Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 10 a 15hs y 18 a 22hs</p>
+<!-- 17 KIOSCO 2 -->
+<div class="bar" id="bar-17" data-categoria="kiosco" data-nombre="Kiosco La Estación Escobar" data-direccion="Ruta 25 y Vías" data-img="https://images.unsplash.com/photo-1556740765-a54d435dc57c?w=400&h=300&fit=crop" data-promos='[{"nombre":"Promo Agua + Alfajor","precio":1500,"desc":"Agua 500ml + alfajor","img":"https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"},{"nombre":"Combo Mate $3000","precio":3000,"desc":"Yerba + termo + bombilla","img":"https://images.unsplash.com/photo-1587314160213-8730f3ef061a?w=200&h=110&fit=crop"},{"nombre":"Chocolatada + Medialunas","precio":2200,"desc":"2 chocolatadas + 4 medias","img":"https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop&crop=entropy"},{"nombre":"Promo Cigarrillos x3","precio":7500,"desc":"3 atados marca a elección","img":"https://images.unsplash.com/photo-1556740765-a54d435dc57c?w=200&h=110&fit=crop"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1556740765-a54d435dc57c?w=400&h=300&fit=crop"><div class="bar-body"><h3>Kiosco La Estación Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 6 a 23hs todos los días</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo al Horno + Papas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Granja Don José Escobar','Pollo al Horno + Papas',9500)">Pedir $9500</button><button class="btn-carrito" data-local="Granja Don José Escobar" data-promo="Pollo al Horno + Papas" data-precio="9500">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop"><div class="promo-nombre">Supremas x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Granja Don José Escobar','Supremas x4',7800)">Pedir $7800</button><button class="btn-carrito" data-local="Granja Don José Escobar" data-promo="Supremas x4" data-precio="7800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=200&h=110&fit=crop"><div class="promo-nombre">Hamburguesas x6</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Granja Don José Escobar','Hamburguesas x6',6200)">Pedir $6200</button><button class="btn-carrito" data-local="Granja Don José Escobar" data-promo="Hamburguesas x6" data-precio="6200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1562967914-608e0a69f0f4?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Combo Milanga + Puré</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Granja Don José Escobar','Combo Milanga + Puré',8900)">Pedir $8900</button><button class="btn-carrito" data-local="Granja Don José Escobar" data-promo="Combo Milanga + Puré" data-precio="8900">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Granja Don José Escobar" data-direccion="Ruta 26 Km 8" data-img="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Agua + Alfajor</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Estación Escobar','Promo Agua + Alfajor',1500)">Pedir $1500</button><button class="btn-carrito" data-local="Kiosco La Estación Escobar" data-promo="Promo Agua + Alfajor" data-precio="1500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1587314160213-8730f3ef061a?w=200&h=110&fit=crop"><div class="promo-nombre">Combo Mate $3000</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Estación Escobar','Combo Mate $3000',3000)">Pedir $3000</button><button class="btn-carrito" data-local="Kiosco La Estación Escobar" data-promo="Combo Mate $3000" data-precio="3000">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1553456558-aff63285bdd1?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Chocolatada + Medialunas</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Estación Escobar','Chocolatada + Medialunas',2200)">Pedir $2200</button><button class="btn-carrito" data-local="Kiosco La Estación Escobar" data-promo="Chocolatada + Medialunas" data-precio="2200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1556740765-a54d435dc57c?w=200&h=110&fit=crop"><div class="promo-nombre">Promo Cigarrillos x3</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Kiosco La Estación Escobar','Promo Cigarrillos x3',7500)">Pedir $7500</button><button class="btn-carrito" data-local="Kiosco La Estación Escobar" data-promo="Promo Cigarrillos x3" data-precio="7500">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Kiosco La Estación Escobar" data-direccion="Ruta 25 y Vías" data-img="https://images.unsplash.com/photo-1556740765-a54d435dc57c?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 <!-- 18 ROTISERIA 2 -->
-<div class="bar" id="bar-18" data-categoria="rotiseria" data-nombre="Lo de Tata Escobar" data-direccion="Calle Pellegrini 321" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" data-promos='[{"nombre":"Vianda Ejecutiva","precio":6800,"desc":"Plato + postre + bebida","img":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"},{"nombre":"Lasagna Casera","precio":7200,"desc":"Porción abundante","img":"https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=200&h=110&fit=crop"},{"nombre":"Tarta de Pollo","precio":5200,"desc":"Con ensalada rusa","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"},{"nombre":"Guiso de Lentejas 1L","precio":5800,"desc":"Casero del día","img":"https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop&crop=entropy"}]'>
-<img class="bar-img" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop"><div class="bar-body"><h3>Lo de Tata Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 19 a 22hs</p>
+<div class="bar" id="bar-18" data-categoria="rotiseria" data-nombre="Rotisería Mamá Cocina Escobar" data-direccion="Calle 25 de Mayo 1122" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" data-promos='[{"nombre":"Vianda Completa x4","precio":18500,"desc":"4 viandas + pan","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"},{"nombre":"Pastas Caseras 1kg","precio":6800,"desc":"Sorrentinos de jyq","img":"https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"},{"nombre":"Pollo al Horno + Ensalada","precio":9200,"desc":"Pollo entero","img":"https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"},{"nombre":"Tarta de Verdura Grande","precio":5800,"desc":"Para 6 personas","img":"https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop&crop=entropy"}]'>
+<img class="bar-img" src="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop"><div class="bar-body"><h3>Rotisería Mamá Cocina Escobar</h3><p class="horario-local"><span class="estado-badge">ABIERTO</span> 🕐 11 a 15hs y 19 a 23hs</p>
 <div class="grid-promos">
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop"><div class="promo-nombre">Vianda Ejecutiva</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Lo de Tata Escobar','Vianda Ejecutiva',6800)">Pedir $6800</button><button class="btn-carrito" data-local="Lo de Tata Escobar" data-promo="Vianda Ejecutiva" data-precio="6800">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1579684947550-22e945225d9a?w=200&h=110&fit=crop"><div class="promo-nombre">Lasagna Casera</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Lo de Tata Escobar','Lasagna Casera',7200)">Pedir $7200</button><button class="btn-carrito" data-local="Lo de Tata Escobar" data-promo="Lasagna Casera" data-precio="7200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Tarta de Pollo</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Lo de Tata Escobar','Tarta de Pollo',5200)">Pedir $5200</button><button class="btn-carrito" data-local="Lo de Tata Escobar" data-promo="Tarta de Pollo" data-precio="5200">+ Carrito</button></div></div>
-<div class="promo-item"><img src="https://images.unsplash.com/photo-1546069901-ba9599a7e63c?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Guiso de Lentejas 1L</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Lo de Tata Escobar','Guiso de Lentejas 1L',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Lo de Tata Escobar" data-promo="Guiso de Lentejas 1L" data-precio="5800">+ Carrito</button></div></div>
-</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Lo de Tata Escobar" data-direccion="Calle Pellegrini 321" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop"><div class="promo-nombre">Vianda Completa x4</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Cocina Escobar','Vianda Completa x4',18500)">Pedir $18500</button><button class="btn-carrito" data-local="Rotisería Mamá Cocina Escobar" data-promo="Vianda Completa x4" data-precio="18500">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1617093727343-374698b1b08d?w=200&h=110&fit=crop"><div class="promo-nombre">Pastas Caseras 1kg</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Cocina Escobar','Pastas Caseras 1kg',6800)">Pedir $6800</button><button class="btn-carrito" data-local="Rotisería Mamá Cocina Escobar" data-promo="Pastas Caseras 1kg" data-precio="6800">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1598515214211-89cf50bb35fd?w=200&h=110&fit=crop"><div class="promo-nombre">Pollo al Horno + Ensalada</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Cocina Escobar','Pollo al Horno + Ensalada',9200)">Pedir $9200</button><button class="btn-carrito" data-local="Rotisería Mamá Cocina Escobar" data-promo="Pollo al Horno + Ensalada" data-precio="9200">+ Carrito</button></div></div>
+<div class="promo-item"><img src="https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=200&h=110&fit=crop&crop=entropy"><div class="promo-nombre">Tarta de Verdura Grande</div><div class="btn-group"><button class="btn-pedir" onclick="abrirPedido('Rotisería Mamá Cocina Escobar','Tarta de Verdura Grande',5800)">Pedir $5800</button><button class="btn-carrito" data-local="Rotisería Mamá Cocina Escobar" data-promo="Tarta de Verdura Grande" data-precio="5800">+ Carrito</button></div></div>
+</div><div style="text-align:center; margin-top:12px"><button class="btn-ver-promos" data-nombre="Rotisería Mamá Cocina Escobar" data-direccion="Calle 25 de Mayo 1122" data-img="https://images.unsplash.com/photo-1551183053-bf91a1d81141?w=400&h=300&fit=crop" onclick="abrirModalPromos(this)">Ver Todas las Promos</button></div></div></div>
 
 </div>
 
-<!-- MODAL ÚNICO -->
-<div class="modal" id="modal">
+<!-- CARRITO FLOTANTE ABAJO DERECHA -->
+<button class="carrito-btn" onclick="abrirCarritoModal()">
+  🛒
+  <span id="contador-carrito">0</span>
+</button>
+
+<!-- MODAL -->
+<div class="modal" id="modal-promos">
   <div class="modal-content">
     <div class="modal-header">
       <img id="modal-img" src="" alt="">
-      <div style="flex:1">
+      <div>
         <h3 id="modal-nombre"></h3>
         <p id="modal-direccion"></p>
-        <p id="modal-horario"></p>
       </div>
       <span class="modal-close" onclick="cerrarModal()">&times;</span>
     </div>
-    
-    <div id="modal-promos-grid" class="modal-promos-grid"></div>
+    <div class="modal-promos-grid" id="modal-promos-list"></div>
     
     <div class="modal-pedido" id="modal-pedido">
-      <h3 id="titulo-modal">Confirmar Pedido 📱</h3>
-      <div id="resumen-pedido"></div>
+      <h4 style="margin-bottom: 15px; color: #25D366;">Completá tu pedido</h4>
+      <input type="text" id="nombre-cliente" placeholder="Tu nombre">
+      <input type="tel" id="telefono-cliente" placeholder="Tu teléfono">
       
-      <div id="opcion-envio-container"></div>
-
-      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
-        <p style="font-weight:bold; margin-bottom:8px; color:#25D366">Método de pago *</p>
-        <div class="opcion-envio">
-          <input type="radio" id="pago-efectivo" name="pago" value="Efectivo" checked>
-          <label for="pago-efectivo">💵 Efectivo<br><small>Contra entrega</small></label>
-          
-          <input type="radio" id="pago-transfer" name="pago" value="Transferencia">
-          <label for="pago-transfer">🏦 Transferencia<br><small>Te pasamos CBU</small></label>
-          
-          <input type="radio" id="pago-mp" name="pago" value="Mercado Pago">
-          <label for="pago-mp">📱 Mercado Pago<br><small>Te mandamos link</small></label>
+      <div class="opcion-envio">
+        <input type="radio" id="delivery" name="envio" value="delivery" checked>
+        <label for="delivery">Delivery</label>
+        <input type="radio" id="retiro" name="envio" value="retiro">
+        <label for="retiro">Retiro</label>
+      </div>
+      
+      <textarea id="direccion-cliente" placeholder="Dirección completa" rows="3"></textarea>
+      <textarea id="notas-cliente" placeholder="Notas para el local" rows="2"></textarea>
+      <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar Pedido por WhatsApp</button>
+    </div>
+    
+    <div class="modal-pedido" id="modal-carrito">
+      <h4 style="margin-bottom: 15px; color: #25D366;">Tu Carrito <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar</button></h4>
+      <div id="carrito-items"></div>
+      <div style="margin-top: 15px; padding-top: 15px; border-top: 1px solid #333;">
+        <div style="display: flex; justify-content: space-between; font-size: 18px; font-weight: bold; margin-bottom: 15px;">
+          <span>Total:</span>
+          <span id="carrito-total">$0</span>
         </div>
-      </div>
-
-      <div style="margin:15px 0; padding:12px; background:#2a2a2a; border-radius:8px">
-        <p style="font-size:18px; margin:10px 0; text-align:center">
-          <span id="texto-envio">Envío a domicilio: <b style="color:#25D366">$2.000</b></span><br>
-          Total: <b id="pedido-total" style="color:#25D366; font-size:22px"></b>
-        </p>
-      </div>
-
-      <input type="text" id="pedido-nombre" placeholder="Tu nombre *" required>
-      <input type="tel" id="pedido-tel" placeholder="Tu teléfono *" required>
-      <input type="text" id="pedido-direccion" placeholder="Dirección para envío *" required>
-      <textarea id="pedido-nota" placeholder="Aclaraciones: piso, timbre, sin cebolla, etc" rows="3"></textarea>
-      
-      <div style="display:flex; gap:8px; margin-top:10px">
-        <button onclick="cerrarModal()" style="flex:1; padding:12px; border:none; border-radius:8px; background:#444; color:#fff; cursor:pointer">Volver</button>
-        <button class="btn-whatsapp" onclick="enviarWhatsApp()">Enviar por WhatsApp</button>
+        <button class="btn-whatsapp" onclick="enviarCarritoWhatsApp()">Pedir Todo por WhatsApp</button>
       </div>
     </div>
   </div>
 </div>
 
-<div id="lightbox" class="lightbox">
-  <span class="close">&times;</span>
-  <img id="lightbox-img">
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox">
+  <span class="close" onclick="cerrarLightbox()">&times;</span>
+  <img id="lightbox-img" src="" alt="">
 </div>
 
-</body>
 <script>
-const NUMERO = "5492983389710";
-let pedidoActual = {};
 let carrito = [];
-let tipoEntrega = 'envio';
+let pedidoActual = {};
 
-document.addEventListener('DOMContentLoaded', () => {
-  const guardado = localStorage.getItem('carritoPromosEscobar');
-  if(guardado) {
-    carrito = JSON.parse(guardado);
-    actualizarContadorCarrito();
-  }
-  
-  const btnTodos = document.querySelector('.filter-btn');
-  if(btnTodos) btnTodos.classList.add('active');
-
-  const modal = document.getElementById('modal');
-  if(modal) {
-    modal.onclick = function(e) {
-      if(e.target.id === 'modal') cerrarModal();
-    }
-  }
-
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImg = document.getElementById('lightbox-img');
-  const closeBtn = document.querySelector('.lightbox .close');
-
-  document.querySelectorAll('.bar-img, .promo-item img').forEach(img => {
-    img.onclick = (e) => {
-      e.stopPropagation();
-      lightbox.style.display = 'block';
-      lightboxImg.src = img.src;
-    }
-  });
-
-  closeBtn.onclick = () => lightbox.style.display = 'none';
-  lightbox.onclick = (e) => { 
-    if(e.target == lightbox) lightbox.style.display = 'none'; 
-  }
-  document.addEventListener('keydown', (e) => {
-    if(e.key === 'Escape') lightbox.style.display = 'none';
-  });
-});
-
-function guardarCarrito() {
-  localStorage.setItem('carritoPromosEscobar', JSON.stringify(carrito));
-}
-
-document.addEventListener('click', e => {
-  if(e.target.classList.contains('btn-carrito')) {
-    const item = {
-      local: e.target.dataset.local, 
-      promo: e.target.dataset.promo, 
-      precio: parseInt(e.target.dataset.precio)
-    };
-    carrito.push(item);
-    guardarCarrito();
-    actualizarContadorCarrito();
-    e.target.textContent = "✓ Agregado";
-    setTimeout(() => e.target.textContent = "+ Carrito", 1000);
-  }
-});
-
-function actualizarContadorCarrito() {
-  document.getElementById('contador-carrito').textContent = `(${carrito.length})`;
-}
-
-function vaciarCarrito() {
-  if(confirm('¿Seguro que querés vaciar el carrito?')) {
-    carrito = [];
-    guardarCarrito();
-    actualizarContadorCarrito();
-    cerrarModal();
-  }
-}
-
-function abrirCarritoModal() {
-  if(carrito.length === 0) {
-    alert("El carrito está vacío. Agregá promos desde los botones + Carrito");
-    return;
-  }
-  
-  tipoEntrega = 'envio';
-  pedidoActual = {tipo: 'carrito'};
-  document.getElementById('modal-nombre').textContent = 'Tu Carrito';
-  document.getElementById('modal-direccion').textContent = '';
-  document.getElementById('modal-horario').textContent = '';
-  document.getElementById('modal-img').src = 'https://cdn-icons-png.flaticon.com/512/3144/3144456.png';
-  
-  const grid = document.getElementById('modal-promos-grid');
-  grid.style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'block';
-  document.getElementById('titulo-modal').innerHTML = 'Confirmar Pedido del Carrito 🛒 <button class="btn-vaciar" onclick="vaciarCarrito()">Vaciar carrito</button>';
-  
-  const subtotal = carrito.reduce((a,b) => {
-    let precioLimpio = parseFloat(b.precio.toString().replace(/[^0-9]/g, ''));
-    return a + (isNaN(precioLimpio) ? 0 : precioLimpio);
-  }, 0);
-  
-  const total = subtotal + 2000;
-  
-  let resumen = '<div id="items-carrito-modal">';
-  carrito.forEach(i => {
-    resumen += `<p><b>${i.promo}</b><br><small>${i.local} - $${i.precio.toLocaleString('es-AR')}</small></p>`;
-  });
-  resumen += `</div><p style="text-align:center; margin-top:10px">Subtotal: $${subtotal.toLocaleString('es-AR')}</p>`;
-  
-  document.getElementById('resumen-pedido').innerHTML = resumen;
-  document.getElementById('texto-envio').innerHTML = 'Envío a domicilio: <b style="color:#25D366">$2.000</b>';
-  document.getElementById('opcion-envio-container').innerHTML = '';
-  document.getElementById('pedido-total').textContent = '$' + total.toLocaleString('es-AR');
-  document.getElementById('pedido-direccion').placeholder = 'Dirección para envío *';
-  document.getElementById('pedido-direccion').required = true;
-  
-  document.getElementById('modal').style.display = 'flex';
-}
-
-function abrirPedido(local, producto, precio) {
-  tipoEntrega = 'envio';
-  pedidoActual = {tipo: 'individual', local, producto, precio};
-  document.getElementById('modal-nombre').textContent = local;
-  document.getElementById('modal-direccion').textContent = '';
-  document.getElementById('modal-horario').textContent = '';
-  
-  const modal = document.getElementById('modal');
-  modal.style.display = 'flex';
-  
-  document.getElementById('modal-promos-grid').style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'block';
-  document.getElementById('titulo-modal').textContent = 'Confirmar Pedido 📱';
-  
-  let resumen = `<p style="color:#aaa">Local: <b>${local}</b></p>
-  <div style="display:flex; justify-content:space-between; margin:10px 0">
-    <b>${producto}</b>
-    <span style="color:#25D366; font-weight:bold">$${precio.toLocaleString('es-AR')}</span>
-  </div>`;
-  
-  const opcionesEnvio = `
-    <div class="opcion-envio">
-      <input type="radio" id="retiro" name="entrega" value="retiro" checked onchange="cambiarTipoEntrega('retiro', ${precio})">
-      <label for="retiro">🏪 Retirar en local<br><small>Sin costo de envío</small></label>
-      
-      <input type="radio" id="envio" name="entrega" value="envio" onchange="cambiarTipoEntrega('envio', ${precio})">
-      <label for="envio">🚚 Envío a domicilio<br><small>+ $2.000</small></label>
-    </div>
-  `;
-  
-  document.getElementById('resumen-pedido').innerHTML = resumen;
-  document.getElementById('opcion-envio-container').innerHTML = opcionesEnvio;
-document.getElementById('texto-envio').innerHTML = 'Retiro en local: <b style="color:#25D366">GRATIS</b>';
-  document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
-  document.getElementById('pedido-direccion').placeholder = 'Dirección del local';
-  document.getElementById('pedido-direccion').required = false;
-}
-
-function cambiarTipoEntrega(tipo, precio) {
-  tipoEntrega = tipo;
-  if(tipo === 'envio') {
-    document.getElementById('texto-envio').innerHTML = 'Envío a domicilio: <b style="color:#25D366">$2.000</b>';
-    document.getElementById('pedido-total').textContent = '$' + (precio + 2000).toLocaleString('es-AR');
-    document.getElementById('pedido-direccion').placeholder = 'Dirección para envío *';
-    document.getElementById('pedido-direccion').required = true;
-  } else {
-    document.getElementById('texto-envio').innerHTML = 'Retiro en local: <b style="color:#25D366">GRATIS</b>';
-    document.getElementById('pedido-total').textContent = '$' + precio.toLocaleString('es-AR');
-    document.getElementById('pedido-direccion').placeholder = 'Dirección del local';
-    document.getElementById('pedido-direccion').required = false;
-  }
-}
-
-function enviarWhatsApp() {
-  const nombre = document.getElementById('pedido-nombre').value;
-  const tel = document.getElementById('pedido-tel').value;
-  const direccion = document.getElementById('pedido-direccion').value;
-  const nota = document.getElementById('pedido-nota').value;
-  const metodoPago = document.querySelector('input[name="pago"]:checked').value;
-  
-  if(!nombre || !tel) {
-    alert('Completá nombre y teléfono. Son obligatorios');
-    return;
-  }
-  
-  if(tipoEntrega === 'envio' && !direccion) {
-    alert('Completá la dirección para el envío');
-    return;
-  }
-  
-  let msg = `*NUEVO PEDIDO ESCOBAR*%0A%0A`;
-  
-  if(pedidoActual.tipo === 'carrito') {
-    msg += `*Pedido desde CARRITO*%0A*Modalidad: ENVÍO OBLIGATORIO*%0A%0A`;
-    carrito.forEach(i => msg += `• ${i.promo} - ${i.local} $${i.precio.toLocaleString('es-AR')}%0A`);
-    const subtotal = carrito.reduce((a,b) => {
-      let precioLimpio = parseFloat(b.precio.toString().replace(/[^0-9]/g, ''));
-      return a + (isNaN(precioLimpio) ? 0 : precioLimpio);
-    }, 0);
-    const total = subtotal + 2000;
-    msg += `%0ASubtotal: $${subtotal.toLocaleString('es-AR')}%0AEnvío a domicilio: $2.000%0A*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
-    msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A*Dirección envío:* ${direccion}%0A*Nota:* ${nota}%0A*Método de pago:* ${metodoPago}`;
-    carrito = [];
-    guardarCarrito();
-    actualizarContadorCarrito();
-  } else {
-    const total = tipoEntrega === 'envio' ? pedidoActual.precio + 2000 : pedidoActual.precio;
-    const modalidad = tipoEntrega === 'envio' ? 'ENVÍO A DOMICILIO' : 'RETIRO EN LOCAL';
-    msg += `*Local:* ${pedidoActual.local}%0A*Promo:* ${pedidoActual.producto}%0A*Precio:* $${pedidoActual.precio.toLocaleString('es-AR')}%0A*Modalidad:* ${modalidad}%0A`;
-    if(tipoEntrega === 'envio') {
-      msg += `Envío a domicilio: $2.000%0A`;
-    }
-    msg += `*TOTAL: $${total.toLocaleString('es-AR')}*%0A%0A`;
-    msg += `*Nombre:* ${nombre}%0A*Tel:* ${tel}%0A`;
-    if(tipoEntrega === 'envio') {
-      msg += `*Dirección envío:* ${direccion}%0A`;
-    }
-    msg += `*Nota:* ${nota}%0A*Método de pago:* ${metodoPago}`;
-  }
-  
-  window.open(`https://wa.me/${NUMERO}?text=${msg}`, '_blank');
-  cerrarModal();
-}
-
-function cerrarModal() {
-  document.getElementById('modal').style.display = 'none';
-  document.getElementById('modal-pedido').style.display = 'none';
-  document.getElementById('modal-promos-grid').style.display = 'flex';
-  document.getElementById('pedido-nombre').value = '';
-  document.getElementById('pedido-tel').value = '';
-  document.getElementById('pedido-direccion').value = '';
-  document.getElementById('pedido-nota').value = '';
-  document.getElementById('opcion-envio-container').innerHTML = '';
-}
-
-function abrirModalPromos(btn) {
-  try {
-    const nombre = btn.dataset.nombre;
-    const direccion = btn.dataset.direccion;
-    const img = btn.dataset.img;
-    const local = btn.closest('.bar');
-    const horario = local.querySelector('.horario-local').textContent.trim();
-    const promosData = JSON.parse(local.dataset.promos);
-    
-    document.getElementById('modal-nombre').textContent = nombre;
-    document.getElementById('modal-direccion').textContent = direccion;
-    document.getElementById('modal-horario').textContent = horario;
-    document.getElementById('modal-img').src = img;
-    
-    const grid = document.getElementById('modal-promos-grid');
-    grid.innerHTML = '';
-
-    promosData.forEach((p) => {
-      const nombreEsc = nombre.replace(/'/g, "\\'");
-      const promoEsc = p.nombre.replace(/'/g, "\\'");
-      
-      grid.innerHTML += `
-        <div class="modal-promo-item">
-          <img src="${p.img}" alt="${p.nombre}" style="width:80px; height:80px; object-fit:cover; border-radius:6px">
-          <div>
-            <h4 style="color:#25D366; margin-bottom:3px">${p.nombre}</h4>
-            <p style="font-size:12px; color:#aaa; margin-bottom:6px">${p.desc}</p>
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span style="font-weight:bold; color:#25D366; font-size:16px">$${p.precio.toLocaleString('es-AR')}</span>
-              <div style="display:flex; gap:6px">
-                <button class="btn-pedir-modal" onclick="abrirPedido('${nombreEsc}','${promoEsc}',${p.precio})">Pedir</button>
-                <button class="btn-carrito" data-local="${nombre}" data-promo="${p.nombre}" data-precio="${p.precio}">+ Carrito</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      `;
-    });
-
-    document.getElementById('modal').style.display = 'flex';
-  } catch(e) {
-    console.error('Error al abrir modal:', e);
-    alert('Error al cargar las promos');
-  }
-}
-
-function filtrarCategoria(categoria, btn) {
+function filtrarCategoria(cat, btn) {
   document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
   btn.classList.add('active');
   
   document.querySelectorAll('.bar').forEach(bar => {
-    if(categoria === 'todos' || bar.dataset.categoria === categoria) {
+    if (cat === 'todos' || bar.dataset.categoria === cat) {
       bar.style.display = 'block';
     } else {
       bar.style.display = 'none';
     }
   });
 }
+
+function abrirModalPromos(btn) {
+  const nombre = btn.dataset.nombre;
+  const direccion = btn.dataset.direccion;
+  const img = btn.dataset.img;
+  const promos = JSON.parse(btn.closest('.bar').dataset.promos);
+  
+  document.getElementById('modal-nombre').textContent = nombre;
+  document.getElementById('modal-direccion').textContent = direccion;
+  document.getElementById('modal-img').src = img;
+  
+  const list = document.getElementById('modal-promos-list');
+  list.innerHTML = '';
+  
+  promos.forEach(p => {
+    list.innerHTML += `
+      <div class="modal-promo-item">
+        <img src="${p.img}" style="width: 80px; height: 80px; border-radius: 6px; object-fit: cover;">
+        <div style="flex: 1;">
+          <div style="font-weight: bold; margin-bottom: 4px;">${p.nombre}</div>
+          <div style="font-size: 12px; color: #aaa; margin-bottom: 6px;">${p.desc}</div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn-pedir-modal" onclick="abrirPedido('${nombre}','${p.nombre}',${p.precio})">Pedir $${p.precio}</button>
+            <button class="btn-carrito" onclick="agregarCarrito('${nombre}','${p.nombre}',${p.precio})">+ Carrito</button>
+          </div>
+        </div>
+      </div>
+    `;
+  });
+  
+  document.getElementById('modal-promos').style.display = 'flex';
+  document.getElementById('modal-pedido').style.display = 'none';
+}
+
+function cerrarModal() {
+  document.getElementById('modal-promos').style.display = 'none';
+}
+
+function abrirPedido(local, promo, precio) {
+  pedidoActual = {local, promo, precio, tipo: 'directo'};
+  document.getElementById('modal-promos-list').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'block';
+}
+
+function agregarCarrito(local, promo, precio) {
+  carrito.push({local, promo, precio});
+  actualizarContador();
+  alert('Agregado al carrito!');
+}
+
+function actualizarContador() {
+  document.getElementById('contador-carrito').textContent = carrito.length;
+}
+
+function abrirCarritoModal() {
+  document.getElementById('modal-promos-list').style.display = 'none';
+  document.getElementById('modal-pedido').style.display = 'none';
+  document.getElementById('modal-carrito').style.display = 'block';
+  
+  const items = document.getElementById('carrito-items');
+  items.innerHTML = '';
+  let total = 0;
+  
+  carrito..forEach((item, index) => {
+    total += item.precio;
+    items.innerHTML += `
+      <div style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #333;">
+        <div style="flex: 1;">
+          <div style="font-size: 13px; font-weight: bold;">${item.promo}</div>
+          <div style="font-size: 11px; color: #aaa;">${item.local}</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="color: #25D366; font-weight: bold;">$${item.precio}</span>
+          <button onclick="quitarDelCarrito(${index})" style="background: #f44336; color: #fff; border: none; border-radius: 4px; padding: 2px 6px; font-size: 10px; cursor: pointer;">X</button>
+        </div>
+      </div>
+    `;
+  });
+  
+  document.getElementById('carrito-total').textContent = '$' + total;
+}
+
+function quitarDelCarrito(index) {
+  carrito.splice(index, 1);
+  actualizarContador();
+  abrirCarritoModal();
+}
+
+function vaciarCarrito() {
+  carrito = [];
+  actualizarContador();
+  abrirCarritoModal();
+}
+
+function enviarWhatsApp() {
+  const nombre = document.getElementById('nombre-cliente').value;
+  const tel = document.getElementById('telefono-cliente').value;
+  const direccion = document.getElementById('direccion-cliente').value;
+  const notas = document.getElementById('notas-cliente').value;
+  const envio = document.querySelector('input[name="envio"]:checked').value;
+  
+  if (!nombre || !tel || (envio === 'delivery' && !direccion)) {
+    alert('Completá todos los datos');
+    return;
+  }
+  
+  let mensaje = `*NUEVO PEDIDO - Promos 24hs Escobar*%0A%0A`;
+  mensaje += `*Local:* ${pedidoActual.local}%0A`;
+  mensaje += `*Promo:* ${pedidoActual.promo}%0A`;
+  mensaje += `*Precio:* $${pedidoActual.precio}%0A%0A`;
+  mensaje += `*Cliente:* ${nombre}%0A`;
+  mensaje += `*Tel:* ${tel}%0A`;
+  mensaje += `*Tipo:* ${envio === 'delivery' ? 'Delivery' : 'Retiro'}%0A`;
+  if (envio === 'delivery') mensaje += `*Dirección:* ${direccion}%0A`;
+  if (notas) mensaje += `*Notas:* ${notas}%0A`;
+  
+  window.open(`https://wa.me/5492983389710?text=${mensaje}`, '_blank');
+  cerrarModal();
+}
+
+function enviarCarritoWhatsApp() {
+  const nombre = document.getElementById('nombre-cliente').value;
+  const tel = document.getElementById('telefono-cliente').value;
+  const direccion = document.getElementById('direccion-cliente').value;
+  const notas = document.getElementById('notas-cliente').value;
+  const envio = document.querySelector('input[name="envio"]:checked').value;
+  
+  if (!nombre || !tel || (envio === 'delivery' && !direccion)) {
+    alert('Completá todos los datos');
+    return;
+  }
+  
+  let total = 0;
+  let mensaje = `*NUEVO PEDIDO MÚLTIPLE - Promos 24hs Escobar*%0A%0A`;
+  
+  carrito.forEach(item => {
+    total += item.precio;
+    mensaje += `*${item.promo}* - $${item.precio}%0A`;
+    mensaje += `_Local: ${item.local}_%0A%0A`;
+  });
+  
+  mensaje += `*TOTAL: $${total}*%0A%0A`;
+  mensaje += `*Cliente:* ${nombre}%0A`;
+  mensaje += `*Tel:* ${tel}%0A`;
+  mensaje += `*Tipo:* ${envio === 'delivery' ? 'Delivery' : 'Retiro'}%0A`;
+  if (envio === 'delivery') mensaje += `*Dirección:* ${direccion}%0A`;
+  if (notas) mensaje += `*Notas:* ${notas}%0A`;
+  
+  window.open(`https://wa.me/5492983389710?text=${mensaje}`, '_blank');
+  carrito = [];
+  actualizarContador();
+  cerrarModal();
+}
+
+document.querySelectorAll('.bar-img, .promo-item img').forEach(img => {
+  img.onclick = function() {
+    document.getElementById('lightbox-img').src = this.src;
+    document.getElementById('lightbox').style.display = 'flex';
+  }
+});
+
+function cerrarLightbox() {
+  document.getElementById('lightbox').style.display = 'none';
+}
+
+window.onclick = function(event) {
+  if (event.target == document.getElementById('modal-promos')) {
+    cerrarModal();
+  }
+  if (event.target == document.getElementById('lightbox')) {
+    cerrarLightbox();
+  }
+}
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./sw.js');
+  });
+}
 </script>
+
+</body>
 </html>

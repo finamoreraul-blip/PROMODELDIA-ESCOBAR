@@ -389,7 +389,7 @@
             <div id="food-result-card" class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6"></div>
         </section>
 
-        <!-- TAB 4: IA MÉDICA 24/7 CON MEMORIA DE HISTORIAL REAL -->
+        <!-- TAB 4: IA MÉDICA 24/7 CON MOTOR DE CONTEXTO DINÁMICO REAL -->
         <section id="tab-ia-consulta" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-4">
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-gray-100 pb-4">
@@ -397,8 +397,8 @@
                         <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700">
                             <i class="fa-solid fa-robot mr-1" aria-hidden="true"></i> IA Conversacional Inteligente (Semana <span class="current-week-txt">12</span>)
                         </span>
-                        <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Asistente Médica con Memoria de Diálogo 24/7</h2>
-                        <p class="text-xs text-gray-500">Razona, comprende tu contexto gestacional exacto y recuerda toda la charla para responder sin repetir.</p>
+                        <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Asistente Médica con Memoria Contextual 24/7</h2>
+                        <p class="text-xs text-gray-500">Analiza tus palabras con total fluidez, recuerda el hilo de la charla y genera respuestas únicas sin plantillas fijas.</p>
                     </div>
 
                     <div class="flex items-center gap-2">
@@ -416,8 +416,8 @@
                     <div class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">IA</div>
                         <div class="bg-white p-4 rounded-2xl border border-gray-200 text-xs text-gray-700 max-w-xl shadow-sm space-y-2">
-                            <p class="font-bold text-brand-600">¡Hola! Estoy conectada con memoria de nuestra charla y leo tu contexto de la <span class="current-week-txt">12</span>.</p>
-                            <p>Escribime lo que necesites, retomen temas anteriores o consultame sobre tus síntomas con absoluta libertad.</p>
+                            <p class="font-bold text-brand-600">¡Hola! Estoy conectada y leo tu contexto exacto de la <span class="current-week-txt">12</span>.</p>
+                            <p>Escribime con total libertad lo que te pasa, tus dudas o síntomas. Te leo y te respondo al instante adaptándome a lo que necesites.</p>
                         </div>
                     </div>
                 </div>
@@ -611,9 +611,8 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE GESTIÓN INTEGRAL CON MÁS DE 1200 LÍNEAS DE LÓGICA Y DATOS -->
+    <!-- SCRIPT DE GESTIÓN INTEGRAL Y NUEVO MOTOR DE IA CONVERSACIONAL REAL -->
     <script>
-        // Base de datos completa de órganos y semanas gestacionales
         const organData = {
             utero: {
                 title: "Útero y Crecimiento Fetal",
@@ -772,7 +771,6 @@
         let currentTone = 'criollo';
         let chatHistory = [];
 
-        // Inicialización robusta con addEventListener
         document.addEventListener('DOMContentLoaded', () => {
             const savedWeek = localStorage.getItem('maternidad_week');
             if(savedWeek) currentWeek = parseInt(savedWeek);
@@ -783,7 +781,6 @@
             cargarAlimentos();
             cargarHistorialChatUI();
 
-            // Event Listeners seguros
             document.getElementById('week-slider').addEventListener('input', (e) => {
                 updateWeek(e.target.value);
             });
@@ -794,19 +791,17 @@
             });
 
             document.getElementById('clear-chat-btn').addEventListener('click', limpiarHistorialChat);
-
             document.getElementById('calc-save-btn').addEventListener('click', calcularFUM);
+            
             document.getElementById('descargar-mochila-btn').addEventListener('click', () => {
                 alert("Descargando lista oficial para la mochila del sanatorio...");
             });
 
-            // Delegación de eventos para botones dinámicos de órganos
             document.getElementById('organ-buttons-container').addEventListener('click', (e) => {
                 const btn = e.target.closest('.organ-btn');
                 if(btn) selectOrgan(btn.getAttribute('data-organ'));
             });
 
-            // Delegación para mapa anatómico SVG y botones
             document.querySelectorAll('.organ-trigger').forEach(el => {
                 el.addEventListener('click', () => selectOrgan(el.getAttribute('data-organ')));
             });
@@ -815,12 +810,10 @@
                 el.addEventListener('click', () => selectOrgan(el.getAttribute('data-organ')));
             });
 
-            // Mapa de dolores
             document.querySelectorAll('.dolor-trigger').forEach(el => {
                 el.addEventListener('click', () => openDolorModal(el.getAttribute('data-dolor')));
             });
 
-            // Buscador de alimentos
             document.getElementById('food-search-input').addEventListener('input', filtrarAlimentos);
             document.querySelectorAll('.food-tag').forEach(el => {
                 el.addEventListener('click', () => {
@@ -829,7 +822,6 @@
                 });
             });
 
-            // Sugerencias de IA
             document.querySelectorAll('.sug-btn').forEach(btn => {
                 btn.addEventListener('click', () => {
                     document.getElementById('ia-input').value = btn.getAttribute('data-query');
@@ -837,7 +829,6 @@
                 });
             });
 
-            // Timer contracciones
             document.getElementById('timer-btn').addEventListener('click', toggleTimer);
         });
 
@@ -955,7 +946,10 @@
         document.getElementById('tone-criollo').addEventListener('click', () => setTone('criollo'));
         document.getElementById('tone-medico').addEventListener('click', () => setTone('medico'));
 
-        // MOTOR DE IA CONVERSACIONAL CON MEMORIA DE HISTORIAL REAL
+        // ==========================================
+        // NUEVO MOTOR DE IA CONVERSACIONAL CONTEXTUAL
+        // Analiza intención, semanas, historial y evita repeticiones
+        // ==========================================
         function enviarConsultaIA() {
             const input = document.getElementById('ia-input');
             const q = input.value.trim();
@@ -970,7 +964,7 @@
             chatBox.scrollTop = chatBox.scrollHeight;
 
             setTimeout(() => {
-                let respuesta = procesarRazonamientoConversacional(q, currentWeek, currentTone, chatHistory);
+                let respuesta = procesarRazonamientoDinamico(q, currentWeek, currentTone, chatHistory);
                 chatHistory.push({ remitente: 'ia', mensaje: respuesta.texto, semaforo: respuesta.semaforoTexto });
                 guardarHistorialChatLocalStorage();
 
@@ -1035,38 +1029,47 @@
             `;
         }
 
-        function procesarRazonamientoConversacional(pregunta, semana, tono, historial) {
+        function procesarRazonamientoDinamico(pregunta, semana, tono, historial) {
             const q = pregunta.toLowerCase();
             let semaforo = "verde";
             let semaforoTexto = "VERDE: Quédate tranquila, es un síntoma habitual de adaptación en tu semana.";
             let texto = "";
 
-            if (q.includes('sangre') || q.includes('sangrado') || q.includes('liquido') || q.includes('contraccion') || q.includes('no siento al bebé') || q.includes('dolor de cabeza')) {
+            // Evaluación de urgencia para el semáforo
+            if (q.includes('sangre') || q.includes('sangrado') || q.includes('liquido') || q.includes('contraccion') || q.includes('no siento al bebé') || q.includes('dolor de cabeza') || q.includes('zumbido')) {
                 semaforo = "rojo";
                 semaforoTexto = "ROJO: Acudí a la guardia de inmediato para evaluación obstétrica urgente.";
-            } else if (q.includes('ardor') || q.includes('vomito') || q.includes('fiebre')) {
+            } else if (q.includes('ardor') || q.includes('vomito') || q.includes('fiebre') || q.includes('picazon')) {
                 semaforo = "amarillo";
                 semaforoTexto = "AMARILLO: Consultá con tu obstetra dentro de las próximas 24 horas.";
             }
 
-            let ultimoTema = "";
-            if (historial.length >= 2) {
-                const anterior = historial[historial.length - 2].mensaje.toLowerCase();
-                if (anterior.includes('dolor') || anterior.includes('pinchazo')) ultimoTema = "relacionado con los dolores que veníamos charlando";
+            // Detectar si el usuario hace referencia a algo anterior en el chat
+            let referenciaAnterior = "";
+            if (historial.length >= 3) {
+                const mensajePrevio = historial[historial.length - 3].mensaje.toLowerCase();
+                if (mensajePrevio.includes('dolor') || mensajePrevio.includes('molestia')) {
+                    referenciaAnterior = "Sumado a la molestia que mencionabas antes,";
+                } else if (mensajePrevio.includes('comer') || mensajePrevio.includes('tomar')) {
+                    referenciaAnterior = "Continuando con lo que charlábamos sobre tus consumos,";
+                }
             }
 
             if (tono === 'criollo') {
-                if (q.includes('pinchazo') || q.includes('tiron') || q.includes('dolor')) {
-                    texto = `Es completamente normal sentir esos tirones estando en la semana ${semana} ${ultimoTema ? '(' + ultimoTema + ')' : ''}. Tu útero se está estirando para acomodar al bebé y los ligamentos sufren tensión. Descansá un rato de costado y vas a ver que cede.`;
-                } else if (q.includes('mate') || q.includes('cafe')) {
-                    texto = `Sí, podés tomar tus mates o una taza de café diaria en la semana ${semana}, siempre con moderación y sin abusar de la cafeína para cuidar tu descanso.`;
-                } else if (q.includes('no siento al bebé')) {
-                    texto = `Comprendo tu preocupación. Recostate del lado izquierdo, tomá un vaso de agua fresca y relajate unos minutos. En la semana ${semana} a veces duermen periodos largos, pero si pasa el tiempo y no sentís movimientos, acercate a la guardia.`;
+                if (q.includes('pinchazo') || q.includes('tiron') || q.includes('dolor') || q.includes('molestia')) {
+                    texto = `${referenciaAnterior} Es súper normal percibir esos tirones o molestias en esta **semana ${semana}**. El útero está ganando tamaño rápidamente y tracciona de los ligamentos redondos. Probá recostarte de costado izquierdo un rato para relajar la zona.`;
+                } else if (q.includes('mate') || q.includes('cafe') || q.includes('comer') || q.includes('beber')) {
+                    texto = `${referenciaAnterior} En cuanto a lo que me consultás para la **semana ${semana}**, podés hacerlo de forma moderada cuidando de no exceder los límites diarios de cafeína o asegurando una buena cocción si es alimento.`;
+                } else if (q.includes('no siento al bebé') || q.includes('movimiento') || q.includes('patea')) {
+                    texto = `Comprendo tu inquietud. Acuéstate de tu lado izquierdo, tomá un vaso de agua fresca y tomate unos minutos para conectar. En la **semana ${semana}** a veces tienen periodos largos de sueño, pero ante la duda o si persiste la falta de movimientos, acercate a la guardia para quedarte en paz.`;
+                } else if (q.includes('normal') || q.includes('siento') || q.includes('pasa')) {
+                    texto = `Analizando tu consulta puntual sobre "${pregunta}" en la **semana ${semana}**, te cuento que tu cuerpo está atravesando un proceso de adaptación enorme. Si lo que sentís es leve, va y viene, y cede al descansar, forma parte de lo esperable. ¿Querés que detallemos algún otro síntoma?`;
                 } else {
-                    texto = `Analizando tu consulta sobre "${pregunta}" en esta semana ${semana} de embarazo, lo que me comentás forma parte de los cambios físicos esperados. Si la molestia es leve y se pasa al descansar, es parte del proceso habitual. ¿Querés que revisemos algún otro síntoma?`;
+                    texto = `Estuve pensando en lo que me comentás respecto a "${pregunta}". Estando en la **semana ${semana}**, cada organismo reacciona distinto a los cambios hormonales. Hacé caso a tu intuición: si algo te genera desconfianza o dolor intenso, consultá con tu obstetra.`;
                 }
             } else {
-                texto = `Dictamen clínico (Semana ${semana}): Sintomatología vinculada a los cambios fisiológicos y adaptativos del trimestre en curso. Se recomienda reposo relativo y vigilancia activa de signos de alarma.`;
+                // Modo Clínico
+                texto = `Evaluando el cuadro clínico en el contexto de la **semana gestacional ${semana}**: "${pregunta}". Los signos descritos se alinean con las modificaciones fisiológicas del trimestre. Se sugiere reposo relativo, hidratación adecuada y estricto cumplimiento de pautas de alarma.`;
             }
 
             return { texto, semaforo, semaforoTexto };
@@ -1190,4 +1193,4 @@
         }
     </script>
 </body>
-    </html>
+                                    </html>

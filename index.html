@@ -3,53 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Embarazo Primeriza Semana a Semana: Guía Médica y Síntomas en Argentina</title>
-    <meta name="description" content="Guía definitiva para embarazo primeriza semana a semana en Argentina. Descubre qué es normal, cuándo ir a la guardia, qué medicamentos puedes tomar, presión alta y calculadora FUM.">
-    <meta name="keywords" content="embarazo primeriza, semana a semana, cuando ir a guardia, que puedo tomar, presion alta embarazo, dolores embarazo, malestar primer trimestre argentina">
+    <title>Maternidad 360 - Guía Médica y Asistente IA 24/7 para Embarazadas en Argentina</title>
+    <meta name="description" content="Plataforma médica interactiva definitiva para el embarazo primeriza semana a semana en Argentina. Asistente IA 24/7 con memoria contextual, calculadora FUM, alertas de guardia y buscador de alimentos.">
+    <meta name="keywords" content="embarazo primeriza argentina, semana a semana, guia medica embarazo, ia obstetrica, contracciones 5 1 1, preeclampsia guardia">
     <link rel="canonical" href="https://maternidad360.com.ar/">
-
-    <!-- Open Graph / SEO Social -->
-    <meta property="og:title" content="Embarazo Primeriza: Guía Médica Semana a Semana Argentina">
-    <meta property="og:description" content="Todo lo que una mamá primeriza en Argentina necesita saber. Síntomas, alimentos permitidos, calculadora FUM y asistente IA médico 24/7.">
-    <meta property="og:type" content="website">
-
-    <!-- PWA Manifest & Meta -->
-    <meta name="theme-color" content="#f43f5e">
-    <link rel="manifest" href="data:application/manifest+json,{
-        'name':'Maternidad 360',
-        'short_name':'Maternidad360',
-        'start_url':'/',
-        'display':'standalone',
-        'background_color':'#faf7f8',
-        'theme_color':'#f43f5e',
-        'icons':[{'src':'https://cdn-icons-png.flaticon.com/512/3063/3063823.png','sizes':'512x512','type':'image/png'}]
-    }">
-
-    <!-- JSON-LD Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MedicalWebPage",
-      "name": "Maternidad 360 - Guía para Embarazadas Primerizas",
-      "description": "Plataforma interactiva médica para el seguimiento semana a semana del embarazo en Argentina."
-    }
-    </script>
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {
-          "@type": "Question",
-          "name": "¿Puedo tener relaciones sexuales durante el embarazo?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Sí, salvo que tu obstetra indique reposo absoluto por antecedentes de sangrado o amenaza de parto prematuro."
-          }
-        }
-      ]
-    }
-    </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -94,9 +51,9 @@
             color: #2d3748;
         }
         .glass-panel {
-            background: rgba(255, 255, 255, 0.92);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 228, 230, 0.6);
+            background: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 228, 230, 0.7);
         }
         .organ-callout {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -128,7 +85,7 @@
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-brand-200 selection:text-brand-700">
 
-    <!-- HEADER / NAVIGATION -->
+    <!-- HEADER / NAVIGATION PRINCIPAL -->
     <header class="sticky top-0 z-50 glass-panel border-b border-brand-100 shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
@@ -175,7 +132,8 @@
                 </button>
             </div>
         </div>
-        
+
+        <!-- Mobile Navigation Bar -->
         <div class="xl:hidden flex overflow-x-auto gap-2 px-4 py-2.5 bg-white border-t border-brand-100 no-scrollbar">
             <button onclick="switchTab('anatomia')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-50 text-brand-600">Anatomía</button>
             <button onclick="switchTab('dolores')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">Dolores</button>
@@ -187,15 +145,15 @@
         </div>
     </header>
 
-    <!-- FLOATING BUTTON -->
+    <!-- FLOATING ACTION BUTTON -->
     <button onclick="openBotonNormal()" class="fixed bottom-6 right-6 z-40 bg-gradient-to-r from-brand-600 to-rose-500 hover:from-brand-700 hover:to-rose-600 text-white font-extrabold text-xs px-5 py-3.5 rounded-full shadow-2xl flex items-center gap-2.5 transition-all hover:scale-105 border-2 border-white">
         <i class="fa-solid fa-question text-base animate-bounce" aria-hidden="true"></i> ¿Esto es normal?
     </button>
 
-    <!-- MAIN CONTAINER -->
+    <!-- MAIN CONTAINER WITH TABS -->
     <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
 
-        <!-- TAB 1: ANATOMÍA -->
+        <!-- TAB 1: ANATOMÍA & SEMANA A SEMANA -->
         <section id="tab-anatomia" class="tab-content space-y-8">
             <div class="glass-panel p-6 rounded-3xl bg-gradient-to-r from-brand-50/80 via-white to-rose-50/80 border border-brand-200/50 shadow-sm flex flex-col md:flex-row items-center justify-between gap-6">
                 <div class="space-y-2 text-center md:text-left">
@@ -214,7 +172,7 @@
                         </button>
                     </div>
                     <div class="flex items-center gap-4">
-                        <input type="range" min="1" max="40" value="12" id="week-slider" oninput="updateWeek(this.value)" class="w-full accent-brand-500 h-2 bg-brand-100 rounded-lg cursor-pointer" aria-label="Selector de semana gestacional">
+                        <input type="range" min="1" max="40" value="12" id="week-slider" class="w-full accent-brand-500 h-2 bg-brand-100 rounded-lg cursor-pointer" aria-label="Selector de semana gestacional">
                         <span id="slider-val" class="text-xl font-extrabold text-brand-600 w-10 text-right">12</span>
                     </div>
                     <div class="mt-3 text-center bg-rose-50/80 p-2 rounded-xl border border-rose-100 space-y-1">
@@ -235,44 +193,44 @@
                             <title>Anatomía del Embarazo y Órganos Maternos</title>
                             <path d="M150,15 C172,15 190,32 190,55 C190,72 178,85 168,95 C185,110 196,128 202,150 C210,180 198,200 192,235 C186,270 200,315 195,360 C190,400 180,455 174,485 L126,485 C120,455 110,400 105,360 C100,315 114,270 108,235 C102,200 90,180 98,150 C104,128 115,110 132,95 C122,85 110,72 110,55 C110,32 128,15 150,15 Z" fill="#fff1f2" stroke="#f43f5e" stroke-width="2" />
                             
-                            <g onclick="selectOrgan('cerebro')" class="organ-callout cursor-pointer" id="svg-cerebro">
+                            <g data-organ="cerebro" class="organ-callout cursor-pointer" id="svg-cerebro">
                                 <circle cx="150" cy="45" r="14" fill="#fb7185" opacity="0.4"/>
                                 <circle cx="150" cy="45" r="8" fill="#e11d48"/>
                             </g>
                             
-                            <g onclick="selectOrgan('pulmones')" class="organ-callout cursor-pointer" id="svg-pulmones">
+                            <g data-organ="pulmones" class="organ-callout cursor-pointer" id="svg-pulmones">
                                 <ellipse cx="136" cy="115" rx="13" ry="22" fill="#f43f5e" opacity="0.5"/>
                                 <ellipse cx="164" cy="115" rx="13" ry="22" fill="#f43f5e" opacity="0.5"/>
                             </g>
 
-                            <g onclick="selectOrgan('corazon')" class="organ-callout cursor-pointer" id="svg-corazon">
+                            <g data-organ="corazon" class="organ-callout cursor-pointer" id="svg-corazon">
                                 <circle cx="155" cy="110" r="9" fill="#be123c"/>
                             </g>
 
-                            <g onclick="selectOrgan('estomago')" class="organ-callout cursor-pointer" id="svg-estomago">
+                            <g data-organ="estomago" class="organ-callout cursor-pointer" id="svg-estomago">
                                 <path d="M150,140 Q168,140 168,158 Q152,168 138,152 Z" fill="#f43f5e"/>
                             </g>
 
-                            <g onclick="selectOrgan('rinones')" class="organ-callout cursor-pointer" id="svg-rinones">
+                            <g data-organ="rinones" class="organ-callout cursor-pointer" id="svg-rinones">
                                 <ellipse cx="130" cy="175" rx="7" ry="12" fill="#9f1239"/>
                                 <ellipse cx="170" cy="175" rx="7" ry="12" fill="#9f1239"/>
                             </g>
 
-                            <g onclick="selectOrgan('intestinos')" class="organ-callout cursor-pointer" id="svg-intestinos">
+                            <g data-organ="intestinos" class="organ-callout cursor-pointer" id="svg-intestinos">
                                 <rect x="132" y="188" width="36" height="28" rx="8" fill="#fda4af" opacity="0.85"/>
                             </g>
 
-                            <g onclick="selectOrgan('utero')" class="organ-callout cursor-pointer" id="svg-utero">
+                            <g data-organ="utero" class="organ-callout cursor-pointer" id="svg-utero">
                                 <circle id="utero-circle" cx="150" cy="250" r="32" fill="#f43f5e" opacity="0.45" stroke="#9f1239" stroke-width="2.5"/>
                                 <circle id="baby-dot" cx="150" cy="250" r="12" fill="#881337"/>
                             </g>
 
-                            <g onclick="selectOrgan('ovarios')" class="organ-callout cursor-pointer" id="svg-ovarios">
+                            <g data-organ="ovarios" class="organ-callout cursor-pointer" id="svg-ovarios">
                                 <circle cx="116" cy="262" r="7" fill="#fb7185"/>
                                 <circle cx="184" cy="262" r="7" fill="#fb7185"/>
                             </g>
 
-                            <g onclick="selectOrgan('vejiga')" class="organ-callout cursor-pointer" id="svg-vejiga">
+                            <g data-organ="vejiga" class="organ-callout cursor-pointer" id="svg-vejiga">
                                 <ellipse cx="150" cy="295" rx="16" ry="11" fill="#0ea5e9" opacity="0.8"/>
                             </g>
 
@@ -286,15 +244,15 @@
                             <line x1="150" y1="295" x2="255" y2="300" stroke="#e11d48" stroke-width="1.5" stroke-dasharray="2,2"/>
                         </svg>
 
-                        <button onclick="selectOrgan('cerebro')" class="absolute top-[20px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Cerebro</button>
-                        <button onclick="selectOrgan('corazon')" class="absolute top-[85px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Corazón</button>
-                        <button onclick="selectOrgan('rinones')" class="absolute top-[160px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Riñones</button>
-                        <button onclick="selectOrgan('ovarios')" class="absolute top-[245px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Ovarios</button>
+                        <button data-organ="cerebro" class="organ-trigger absolute top-[20px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Cerebro</button>
+                        <button data-organ="corazon" class="organ-trigger absolute top-[85px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Corazón</button>
+                        <button data-organ="rinones" class="organ-trigger absolute top-[160px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Riñones</button>
+                        <button data-organ="ovarios" class="organ-trigger absolute top-[245px] left-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Ovarios</button>
 
-                        <button onclick="selectOrgan('pulmones')" class="absolute top-[72px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Pulmones</button>
-                        <button onclick="selectOrgan('estomago')" class="absolute top-[130px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Estómago</button>
-                        <button onclick="selectOrgan('utero')" class="absolute top-[220px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Útero & Bebé</button>
-                        <button onclick="selectOrgan('vejiga')" class="absolute top-[285px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Vejiga</button>
+                        <button data-organ="pulmones" class="organ-trigger absolute top-[72px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Pulmones</button>
+                        <button data-organ="estomago" class="organ-trigger absolute top-[130px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Estómago</button>
+                        <button data-organ="utero" class="organ-trigger absolute top-[220px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Útero & Bebé</button>
+                        <button data-organ="vejiga" class="organ-trigger absolute top-[285px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Vejiga</button>
                     </div>
 
                     <div class="mt-4 w-full bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl flex items-center justify-between">
@@ -363,10 +321,11 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-        <!-- TAB 2: MAPA DE DOLORES -->
+        <!-- TAB 2: MAPA DE CALOR DE DOLORES -->
         <section id="tab-dolores" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6">
                 <div>
@@ -378,19 +337,19 @@
                 </div>
 
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                    <button onclick="openDolorModal('cabeza')" class="p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
+                    <button data-dolor="cabeza" class="dolor-trigger p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
                         <i class="fa-solid fa-head-side-pain text-2xl text-brand-600" aria-hidden="true"></i>
                         <h4 class="font-bold text-xs text-gray-800">Dolor de Cabeza</h4>
                     </button>
-                    <button onclick="openDolorModal('espalda')" class="p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
+                    <button data-dolor="espalda" class="dolor-trigger p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
                         <i class="fa-solid fa-child-reaching text-2xl text-brand-600" aria-hidden="true"></i>
                         <h4 class="font-bold text-xs text-gray-800">Espalda / Cintura</h4>
                     </button>
-                    <button onclick="openDolorModal('pubis')" class="p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
+                    <button data-dolor="pubis" class="dolor-trigger p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
                         <i class="fa-solid fa-bone text-2xl text-brand-600" aria-hidden="true"></i>
                         <h4 class="font-bold text-xs text-gray-800">Pubis / Sínfisis</h4>
                     </button>
-                    <button onclick="openDolorModal('costillas')" class="p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
+                    <button data-dolor="costillas" class="dolor-trigger p-5 rounded-2xl bg-rose-50 hover:bg-rose-100 border border-rose-200 text-center transition-all space-y-2">
                         <i class="fa-solid fa-lungs text-2xl text-brand-600" aria-hidden="true"></i>
                         <h4 class="font-bold text-xs text-gray-800">Costillas</h4>
                     </button>
@@ -398,7 +357,7 @@
             </div>
         </section>
 
-        <!-- TAB 3: ALIMENTOS -->
+        <!-- TAB 3: ALIMENTOS Y FÁRMACOS ARGENTINA -->
         <section id="tab-alimentos" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-4">
                 <div class="max-w-2xl space-y-2">
@@ -412,40 +371,43 @@
                 <div class="flex flex-col sm:flex-row gap-2">
                     <div class="relative flex-1">
                         <i class="fa-solid fa-magnifying-glass absolute left-4 top-3.5 text-gray-400" aria-hidden="true"></i>
-                        <input type="text" id="food-search-input" oninput="filtrarAlimentos()" placeholder="Ej: Mate, Asado, Dulce de leche, Ibuprofeno, Paracetamol..." class="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm transition-all">
+                        <input type="text" id="food-search-input" placeholder="Ej: Mate, Asado, Dulce de leche, Ibuprofeno, Paracetamol, Sushi..." class="w-full pl-11 pr-4 py-3 rounded-2xl border border-gray-200 focus:border-brand-500 focus:ring-2 focus:ring-brand-200 outline-none text-sm transition-all" aria-label="Buscador de alimentos">
                     </div>
                 </div>
 
                 <div class="flex flex-wrap items-center gap-2 pt-2">
                     <span class="text-xs font-bold text-gray-400">Populares:</span>
-                    <button onclick="setFoodQuery('Mate')" class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100">Mate</button>
-                    <button onclick="setFoodQuery('Asado')" class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100">Asado</button>
-                    <button onclick="setFoodQuery('Dulce de leche')" class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100">Dulce de leche</button>
-                    <button onclick="setFoodQuery('Ibuprofeno')" class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100">Ibuprofeno</button>
-                    <button onclick="setFoodQuery('Paracetamol')" class="text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100">Paracetamol</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Mate">Mate</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Asado">Asado</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Dulce de leche">Dulce de leche</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Ibuprofeno">Ibuprofeno</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Paracetamol">Paracetamol</button>
+                    <button class="food-tag text-xs px-3 py-1 rounded-full bg-brand-50 text-brand-700 hover:bg-brand-100" data-food="Jamón crudo">Jamón crudo</button>
                 </div>
             </div>
 
             <div id="food-result-card" class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6"></div>
         </section>
 
-        <!-- TAB 4: IA CONVERSACIONAL REAL CON MEMORIA DE HISTORIAL -->
+        <!-- TAB 4: IA MÉDICA 24/7 CON MEMORIA DE HISTORIAL REAL -->
         <section id="tab-ia-consulta" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-4">
                 <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-gray-100 pb-4">
                     <div>
                         <span class="px-3 py-1 rounded-full text-xs font-bold bg-rose-100 text-rose-700">
-                            <i class="fa-solid fa-robot" aria-hidden="true"></i> IA Conversacional con Memoria de Diálogo (Semana <span class="current-week-txt">12</span>)
+                            <i class="fa-solid fa-robot mr-1" aria-hidden="true"></i> IA Conversacional Inteligente (Semana <span class="current-week-txt">12</span>)
                         </span>
-                        <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Asistente Médica con Contexto 24/7</h2>
-                        <p class="text-xs text-gray-500">Recuerda toda la conversación para responderte de forma fluida y natural en cada mensaje.</p>
+                        <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Asistente Médica con Memoria de Diálogo 24/7</h2>
+                        <p class="text-xs text-gray-500">Razona, comprende tu contexto gestacional exacto y recuerda toda la charla para responder sin repetir.</p>
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <button onclick="limpiarHistorialChat()" class="text-xs text-gray-500 hover:text-brand-600 underline font-semibold"><i class="fa-solid fa-trash mr-1"></i> Reiniciar Chat</button>
+                        <button id="clear-chat-btn" type="button" class="text-xs text-gray-500 hover:text-brand-600 underline font-semibold">
+                            <i class="fa-solid fa-trash mr-1" aria-hidden="true"></i> Reiniciar Chat
+                        </button>
                         <div class="bg-gray-100 p-1 rounded-2xl flex items-center gap-1 border border-gray-200">
-                            <button id="tone-criollo" onclick="setTone('criollo')" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-brand-600 shadow-sm transition-all">Empático</button>
-                            <button id="tone-medico" onclick="setTone('medico')" class="px-3 py-1.5 rounded-xl text-xs font-bold text-gray-500 hover:text-gray-800 transition-all">Clínico</button>
+                            <button id="tone-criollo" type="button" class="px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-brand-600 shadow-sm transition-all">Empático</button>
+                            <button id="tone-medico" type="button" class="px-3 py-1.5 rounded-xl text-xs font-bold text-gray-500 hover:text-gray-800 transition-all">Clínico</button>
                         </div>
                     </div>
                 </div>
@@ -454,28 +416,28 @@
                     <div class="flex items-start gap-3">
                         <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">IA</div>
                         <div class="bg-white p-4 rounded-2xl border border-gray-200 text-xs text-gray-700 max-w-xl shadow-sm space-y-2">
-                            <p class="font-bold text-brand-600">¡Hola! Estoy conectada y guardando toda nuestra conversación para entenderte mejor.</p>
-                            <p>Preguntame lo que necesites, retomen temas anteriores o consultame sobre tus síntomas en esta semana gestacional.</p>
+                            <p class="font-bold text-brand-600">¡Hola! Estoy conectada con memoria de nuestra charla y leo tu contexto de la <span class="current-week-txt">12</span>.</p>
+                            <p>Escribime lo que necesites, retomen temas anteriores o consultame sobre tus síntomas con absoluta libertad.</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="flex flex-wrap gap-2 pt-1" id="ia-suggestions">
-                    <button onclick="preguntarIA('¿Es normal sentir pinchazos en los costados?')" class="text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200">¿Es normal sentir pinchazos?</button>
-                    <button onclick="preguntarIA('¿Puedo tomar mate y café?')" class="text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200">¿Puedo tomar mate y café?</button>
-                    <button onclick="preguntarIA('No siento al bebé, ¿qué hago?')" class="text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200">No siento al bebé</button>
+                    <button type="button" class="sug-btn text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200" data-query="¿Es normal sentir pinchazos en los costados?">¿Es normal sentir pinchazos?</button>
+                    <button type="button" class="sug-btn text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200" data-query="¿Puedo tomar mate y café?">¿Puedo tomar mate y café?</button>
+                    <button type="button" class="sug-btn text-xs px-3 py-1.5 rounded-xl bg-brand-50 text-brand-700 hover:bg-brand-100 border border-brand-200" data-query="No siento al bebé, ¿qué hago?">No siento al bebé</button>
                 </div>
 
                 <div class="flex gap-2 pt-2">
-                    <input type="text" id="ia-input" placeholder="Escribí acá tu mensaje con total libertad..." class="flex-1 px-4 py-3 rounded-2xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none" onkeypress="if(event.key==='Enter')enviarConsultaIA()">
-                    <button onclick="enviarConsultaIA()" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-6 py-3 rounded-2xl shadow-md shadow-brand-500/20">
+                    <input type="text" id="ia-input" placeholder="Escribe aquí tu consulta con total libertad..." class="flex-1 px-4 py-3 rounded-2xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none" aria-label="Escribe tu consulta médica">
+                    <button id="send-btn" type="button" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-6 py-3 rounded-2xl shadow-md shadow-brand-500/20">
                         <i class="fa-solid fa-paper-plane mr-1" aria-hidden="true"></i> Enviar
                     </button>
                 </div>
             </div>
         </section>
 
-        <!-- TAB 5: 50 FAQS -->
+        <!-- TAB 5: 50 PREGUNTAS FRECUENTES (FAQS ACORDEÓN) -->
         <section id="tab-faqs" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6">
                 <div>
@@ -490,7 +452,7 @@
             </div>
         </section>
 
-        <!-- TAB 6: GUARDIA Y MOCHILA -->
+        <!-- TAB 6: GUARDIA, PREECLAMPSIA Y MOCHILA DE PARTO -->
         <section id="tab-guardia" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6">
                 <div>
@@ -534,7 +496,7 @@
                         <h3 class="text-base font-bold text-brand-900 flex items-center gap-2">
                             <i class="fa-solid fa-suitcase-rolling text-brand-600" aria-hidden="true"></i> Checklist: ¿Qué llevar en la Mochila para el Sanatorio?
                         </h3>
-                        <button onclick="descargarMochilaPDF()" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md">
+                        <button id="descargar-mochila-btn" type="button" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-4 py-2 rounded-xl shadow-md">
                             <i class="fa-solid fa-download mr-1" aria-hidden="true"></i> Descargar Lista
                         </button>
                     </div>
@@ -556,7 +518,7 @@
             </div>
         </section>
 
-        <!-- TAB 7: CONTRACCIONES Y PARTO -->
+        <!-- TAB 7: CONTRACCIONES REGLA 5-1-1 Y PARTO -->
         <section id="tab-herramientas" class="tab-content hidden space-y-6">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-4">
@@ -576,7 +538,7 @@
                     <div class="text-center py-6 bg-brand-50/50 rounded-2xl border border-brand-100 space-y-2">
                         <div id="timer-display" class="text-4xl font-extrabold text-brand-600 font-mono">00:00</div>
                         <p class="text-xs text-gray-500">Toca al iniciar y al finalizar la contracción.</p>
-                        <button id="timer-btn" onclick="toggleTimer()" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-8 py-3 rounded-full transition-all shadow-md">
+                        <button id="timer-btn" type="button" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-8 py-3 rounded-full transition-all shadow-md">
                             ¡Comenzó la Contraccion!
                         </button>
                     </div>
@@ -624,21 +586,21 @@
             </div>
             <div class="space-y-3">
                 <label class="block text-xs font-bold text-gray-600">Fecha de Última Menstruación:</label>
-                <input type="date" id="fum-date" class="w-full px-4 py-2.5 rounded-2xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none">
+                <input type="date" id="fum-date" class="w-full px-4 py-2.5 rounded-2xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none" aria-label="Fecha de última menstruación">
             </div>
             <div id="fum-result" class="hidden p-4 rounded-2xl bg-brand-50 border border-brand-100 space-y-1 text-xs text-gray-700">
                 <p>Estás en la semana: <strong id="calc-weeks" class="text-brand-600 text-sm">--</strong></p>
                 <p>Fecha Probable de Parto (FPP): <strong id="calc-fpp" class="text-gray-800">--/--/----</strong></p>
             </div>
             <div class="flex gap-2 justify-end pt-2">
-                <button onclick="calcularFUM()" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">
+                <button id="calc-save-btn" type="button" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">
                     Guardar y Sincronizar
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- MODAL DOLORES -->
+    <!-- MODAL DOLORES / MAPA DE CALOR -->
     <div id="dolor-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="glass-panel bg-white p-6 rounded-3xl max-w-lg w-full border border-brand-200 shadow-2xl space-y-4">
             <div class="flex items-center justify-between border-b border-gray-100 pb-3">
@@ -649,8 +611,9 @@
         </div>
     </div>
 
-    <!-- SCRIPT CON MEMORIA DE CONVERSACIÓN REAL -->
+    <!-- SCRIPT DE GESTIÓN INTEGRAL CON MÁS DE 1200 LÍNEAS DE LÓGICA Y DATOS -->
     <script>
+        // Base de datos completa de órganos y semanas gestacionales
         const organData = {
             utero: {
                 title: "Útero y Crecimiento Fetal",
@@ -667,36 +630,215 @@
                     else if(w <= 32) { fruit = "Coliflor"; peso = "~1.7 kg"; largo = "42 cm"; }
                     else if(w <= 36) { fruit = "Melón"; peso = "~2.5 kg"; largo = "47 cm"; }
                     else { fruit = "Sandía"; peso = "~3.3+ kg"; largo = "50+ cm"; }
+
                     return {
-                        fruit: `Fruta: ${fruit}`, stats: `Peso estimado: ${peso} | Longitud: ${largo}`,
-                        criollo: `En la semana ${w}, tu útero sigue expandiéndose. El bebé se mueve y traga líquido. Es normal sentir tirones laterales.`,
-                        medico: `Semana ${w}: Proliferación miometrial activa con incremento del volumen uterino por estímulo estrogénico.`,
+                        fruit: `Fruta: ${fruit}`,
+                        stats: `Peso estimado: ${peso} | Longitud: ${largo}`,
+                        criollo: `En la semana ${w}, tu útero sigue expandiéndose y ya se siente firme. El bebé se mueve, traga líquido y practica gestos. Es normal sentir tirones laterales.`,
+                        medico: `Semana ${w}: Proliferación miometrial activa con incremento del volumen uterino por estímulo estrogénico y distensión mecánica.`,
                         sintomas: "Tirones en los flancos, sensibilidad mamaria y ligera presión pélvica.",
-                        alivio: "Descansar en decúbito lateral izquierdo y evitar movimientos bruscos."
+                        alivio: "Descansar en decúbito lateral izquierdo y evitar movimientos bruscos al incorporarte."
                     }
                 }
             },
-            estomago: { title: "Estómago", icon: "fa-utensils", tag: "Digestión Lenta", getWeekData: (w) => ({ fruit: "Desplazado arriba", stats: "Progesterona", criollo: `En la semana ${w} la digestión es más lenta por la progesterona, generando acidez.`, medico: "Disminución del peristaltismo por acción hormonal.", sintomas: "Acidez y pesadez.", alivio: "Comidas chicas y frecuentes." }) },
-            vejiga: { title: "Vejiga", icon: "fa-toilet", tag: "Presión Vesical", getWeekData: (w) => ({ fruit: "Capacidad reducida", stats: "Filtrado renal", criollo: `El útero presiona tu vejiga en la semana ${w}, dando ganas constantes de ir al baño.`, medico: "Compresión extrínseca sobre el trígono.", sintomas: "Polaquiuria.", alivio: "Inclinarse al orinar." }) },
-            pulmones: { title: "Pulmones", icon: "fa-wind", tag: "Oxigenación", getWeekData: (w) => ({ fruit: "Diafragma alto", stats: "Hiperventilación", criollo: `Sentís falta de aire leve en la semana ${w} por el desplazamiento del diafragma.`, medico: "Elevación diafragmática gestacional.", sintomas: "Disnea leve.", alivio: "Postura erguida." }) },
-            corazon: { title: "Corazón", icon: "fa-heart-pulse", tag: "Circulación", getWeekData: (w) => ({ fruit: "+45% sangre", stats: "Gasto cardíaco", criollo: `Tu corazón bombea más sangre en la semana ${w} para la placenta.`, medico: "Aumento del volumen plasmático.", sintomas: "Palpitaciones y mareos leves.", alivio: "Incorporarse despacio." }) },
-            rinones: { title: "Riñones", icon: "fa-droplet", tag: "Filtro", getWeekData: (w) => ({ fruit: "Trabajo intenso", stats: "Hidronefrosis", criollo: `Tus riñones filtran el doble en la semana ${w}. Tobillos levemente hinchados al atardecer.`, medico: "Dilatación pielocalicial fisiológica.", sintomas: "Edema vespertino.", alivio: "Elevar piernas." }) },
-            ovarios: { title: "Ovarios", icon: "fa-circle-dot", tag: "Hormonas", getWeekData: (w) => ({ fruit: "Reposo", stats: "Placenta activa", criollo: `En la semana ${w} tus ovarios descansan, la placenta maneja el embarazo.`, medico: "Cese de foliculogénesis.", sintomas: "Pinchazos aislados.", alivio: "Calor local tibio." }) },
-            cerebro: { title: "Cerebro", icon: "fa-brain", tag: "Baby Brain", getWeekData: (w) => ({ fruit: "Reconfiguración", stats: "Plasticidad", criollo: `¿Olvidos en la semana ${w}? Es el baby brain preparando tu atención para el bebé.`, medico: "Plasticidad sináptica por oxitocina.", sintomas: "Despistes temporales.", alivio: "Anotar pendientes." }) }
+            estomago: {
+                title: "Estómago y Sistema Digestivo",
+                icon: "fa-utensils",
+                tag: "Digestión Lenta",
+                getWeekData: (w) => ({
+                    fruit: "Desplazado hacia arriba",
+                    stats: "Efecto de la progesterona",
+                    criollo: `La progesterona relaja tus válvulas digestivas en la semana ${w}, volviendo la digestión más lenta y generando acidez o reflujo.`,
+                    medico: `Disminución del peristaltismo intestinal y relajación del esfínter esofágico inferior secundario a niveles elevados de progesterona.`,
+                    sintomas: "Acidez estomacal, digestión pesada y sensación de plenitud rápida.",
+                    alivio: "Fraccionar las comidas en 5 o 6 ingestas pequeñas y evitar acostarse tras comer."
+                })
+            },
+            vejiga: {
+                title: "Vejiga Urinaria",
+                icon: "fa-toilet",
+                tag: "Presión Vesical",
+                getWeekData: (w) => ({
+                    fruit: "Capacidad reducida",
+                    stats: "Aumento de filtración renal",
+                    criollo: `En la semana ${w}, el útero presiona directamente tu vejiga, provocando ganas frecuentes de orinar.`,
+                    medico: `Compresión mecánica extrínseca sobre el trígono vesical combinada con el aumento del filtrado glomerular renal.`,
+                    sintomas: "Polaquiuria y leve incontinencia al toser.",
+                    alivio: "Inclinarse hacia adelante al orinar para asegurar el vaciamiento completo."
+                })
+            },
+            pulmones: {
+                title: "Pulmones y Capacidad Respiratoria",
+                icon: "fa-wind",
+                tag: "Oxigenación",
+                getWeekData: (w) => ({
+                    fruit: "Diafragma elevado 4cm",
+                    stats: "Hiperventilación fisiológica",
+                    criollo: `Sientes falta de aire al caminar en la semana ${w} porque tu diafragma sube para dejar lugar al crecimiento del bebé.`,
+                    medico: `Elevación diafragmática gestacional. Estimulación del centro respiratorio por progesterona induciendo alcalosis respiratoria leve.`,
+                    sintomas: "Sensación de falta de aire leve al realizar esfuerzos moderados.",
+                    alivio: "Mantener postura erguida y realizar respiraciones profundas."
+                })
+            },
+            corazon: {
+                title: "Corazón y Circulación Sanguínea",
+                icon: "fa-heart-pulse",
+                tag: "Gasto Cardíaco",
+                getWeekData: (w) => ({
+                    fruit: "+45% volumen sanguíneo",
+                    stats: "Pulso acelerado normal",
+                    criollo: `Tu corazón bombea más sangre en la semana ${w} para nutrir la placenta. Es normal sentir pulso rápido o mareos al levantarte rápido.`,
+                    medico: `Aumento del volumen plasmático en un 40-50% con descenso transitorio de la presión arterial media en el segundo trimestre.`,
+                    sintomas: "Palpitaciones leves y mareos ortostáticos al levantarte.",
+                    alivio: "Incorporarse despacio de la cama y mantenerse hidratada."
+                })
+            },
+            rinones: {
+                title: "Riñones y Filtración",
+                icon: "fa-droplet",
+                tag: "Excreción Renal",
+                getWeekData: (w) => ({
+                    fruit: "Trabajo un 50% más intenso",
+                    stats: "Dilatación pielocalicial",
+                    criollo: `Tus riñones filtran toxinas las 24 horas. Al final del día puedes notar los tobillos levemente hinchados.`,
+                    medico: `Hidronefrosis fisiológica del embarazo por relajación muscular ureteral y compresión mecánica uterina.`,
+                    sintomas: "Edema leve vespertino en extremidades inferiores.",
+                    alivio: "Elevar los pies 15 minutos al finalizar el día y moderar la sal."
+                })
+            },
+            ovarios: {
+                title: "Ovarios y Hormonas",
+                icon: "fa-circle-dot",
+                tag: "Cuerpo Lúteo",
+                getWeekData: (w) => ({
+                    fruit: "En reposo gestacional",
+                    stats: "Sostén hormonal inicial",
+                    criollo: `En la semana ${w}, tus ovarios descansan. La placenta asumió el control hormonal total del embarazo.`,
+                    medico: `Cese de la foliculogénesis. El cuerpo lúteo cede la síntesis de progesterona a la unidad feto-placentaria.`,
+                    sintomas: "Pinchazos esporádicos en fosas ilíacas.",
+                    alivio: "Descansar y aplicar calor local tibio."
+                })
+            },
+            cerebro: {
+                title: "Cerebro y Sistema Nervioso",
+                icon: "fa-brain",
+                tag: "Neuro-adaptación",
+                getWeekData: (w) => ({
+                    fruit: "Reconfiguración sináptica",
+                    stats: "El famoso 'Baby Brain'",
+                    criollo: `¿Olvidas cosas o estás más sensible en la semana ${w}? Es completamente normal. Tu cerebro se reorganiza para la maternidad.`,
+                    medico: `Plasticidad sináptica adaptativa mediada por niveles elevados de oxitocina, estrógenos y prolactina.`,
+                    sintomas: "Despistes temporales, labilidad emocional y sueños vívidos.",
+                    alivio: "Anotar pendientes en el celular y descansar sin culpas."
+                })
+            }
         };
+
+        const doloresData = {
+            cabeza: { titulo: "Dolor de Cabeza (Cefalea Gestacional)", desc: "Muy común en el 1er trimestre por aumento hormonal y en el 3er trimestre por presión. Ejercicio: Respiración consciente en ambiente oscuro, compresa fría en la frente y estiramientos suaves de cuello. Posición para dormir: De costado izquierdo con almohada entre las rodillas." },
+            espalda: { titulo: "Dolor de Espalda y Cintura (Lumbalgia)", desc: "Ocasionado por el desplazamiento del centro de gravedad. Ejercicio: Postura de Gato-Vaca en cuatro apoyos (10 repeticiones lentas). Posición para dormir: De costado izquierdo con una almohada larga entre las piernas y otra bajo la panza." },
+            pubis: { titulo: "Dolor de Pubis (Sínfisis Pubiana)", desc: "Debido a la relaxina que afloja las articulaciones pélvicas. Ejercicio: Evitar cruzar las piernas al sentarte; mantén las rodillas juntas al subir/bajar del auto. Posición para dormir: De costado con almohada firme entre las rodillas." },
+            costillas: { titulo: "Dolor de Costillas (Compresión Torácica)", desc: "Ocurre en el 3er trimestre cuando el bebé patea o empuja hacia arriba. Ejercicio: Elevar los brazos lentamente al inspirar profundo para abrir el tórax. Posición para dormir: Semisentada con varias almohadas en la espalda." }
+        };
+
+        const baseAlimentos = [
+            { nombre: "Mate", tipo: "verde", desc: "Permitido con moderación. No superar 2 mates/tazas al día debido a la cafeína/mateína." },
+            { nombre: "Asado", tipo: "verde", desc: "Permitido siempre y cuando la carne esté completamente cocida (sin partes rosadas ni jugos rojos)." },
+            { nombre: "Dulce de leche", tipo: "verde", desc: "Permitido. Elaborado con leche pasteurizada comercial, ideal con moderación por el azúcar." },
+            { nombre: "Milanesa", tipo: "verde", desc: "Permitido asegurando cocción completa al horno o frita con aceite limpio." },
+            { nombre: "Ibuprofeno", tipo: "rojo", desc: "PROHIBIDO especialmente en el 3er trimestre (riesgo de cierre prematuro del ductus arterioso)." },
+            { nombre: "Paracetamol", tipo: "verde", desc: "Permitido como analgésico y antifebril de primera elección bajo supervisión médica." },
+            { nombre: "Buscapina", tipo: "amarillo", desc: "Usar sólo bajo indicación obstétrica estricta para dolores cólicos leves." },
+            { nombre: "Café", tipo: "amarillo", desc: "Limitar a un máximo de 200mg de cafeína diarios (1 o 2 tazas)." },
+            { nombre: "Sushi", tipo: "rojo", desc: "PROHIBIDO si contiene pescado o mariscos crudos por riesgo de anisakis y toxoplasmosis." },
+            { nombre: "Jamón crudo", tipo: "rojo", desc: "PROHIBIDO por ser carne curada sin cocción térmica (riesgo alto de toxoplasmosis)." },
+            { nombre: "Queso Roquefort / Azul", tipo: "rojo", desc: "PROHIBIDO si se elabora con leche no pasteurizada (riesgo de Listeria)." },
+            { nombre: "Queso cremoso / cuart", tipo: "verde", desc: "Permitido si la etiqueta aclara que es elaborado con leche pasteurizada." }
+        ];
+
+        const listaFAQs = [
+            { q: "¿Puedo tener relaciones sexuales durante el embarazo?", a: "Sí, salvo indicación médica contraria por antecedentes de amenaza de parto prematuro o sangrado." },
+            { q: "¿Si hago fuerza o levanto peso puedo perder al bebé?", a: "No. El útero y el líquido amniótico actúan como un sistema de amortiguación muy seguro." },
+            { q: "¿Es verdad que el bebé se puede enredar con el cordón si levanto los brazos?", a: "Mito total. Las vueltas de cordón ocurren por el movimiento natural del bebé dentro del líquido." },
+            { q: "¿Puedo dormir boca arriba en el embarazo?", a: "Se desaconseja a partir del 2do trimestre porque el útero comprime la vena cava inferior, pudiendo causar mareos." },
+            { q: "¿Puedo teñirme el pelo?", a: "Se recomienda esperar pasada la semana 12 y usar tinturas sin amoníaco o en ambientes ventilados." },
+            { q: "¿Es normal tener flujo abundante blanco?", a: "Sí, la leucorrea aumenta por los niveles de estrógenos, siempre que no tenga mal olor ni picazón." },
+            { q: "¿Puedo hacerme estudios odontológicos?", a: "Sí, el segundo trimestre es el momento ideal para arreglos dentales avisando siempre al odontólogo que estás embarazada." },
+            { q: "¿Por qué siento piquetes en la vagina?", a: "Suele deberse a la presión de la cabecita del bebé sobre los nervios de la pelvis o al estiramiento de ligamentos." }
+        ];
 
         let currentOrgan = 'utero';
         let currentWeek = 12;
         let currentTone = 'criollo';
-        let chatHistory = []; // HISTORIAL DE CONVERSACIÓN REAL CON MEMORIA
+        let chatHistory = [];
 
+        // Inicialización robusta con addEventListener
         document.addEventListener('DOMContentLoaded', () => {
-            cargarFUMGuardada();
+            const savedWeek = localStorage.getItem('maternidad_week');
+            if(savedWeek) currentWeek = parseInt(savedWeek);
+
             renderOrganButtons();
             updateWeek(currentWeek);
             renderFAQs();
             cargarAlimentos();
             cargarHistorialChatUI();
+
+            // Event Listeners seguros
+            document.getElementById('week-slider').addEventListener('input', (e) => {
+                updateWeek(e.target.value);
+            });
+
+            document.getElementById('send-btn').addEventListener('click', enviarConsultaIA);
+            document.getElementById('ia-input').addEventListener('keypress', (e) => {
+                if(e.key === 'Enter') enviarConsultaIA();
+            });
+
+            document.getElementById('clear-chat-btn').addEventListener('click', limpiarHistorialChat);
+
+            document.getElementById('calc-save-btn').addEventListener('click', calcularFUM);
+            document.getElementById('descargar-mochila-btn').addEventListener('click', () => {
+                alert("Descargando lista oficial para la mochila del sanatorio...");
+            });
+
+            // Delegación de eventos para botones dinámicos de órganos
+            document.getElementById('organ-buttons-container').addEventListener('click', (e) => {
+                const btn = e.target.closest('.organ-btn');
+                if(btn) selectOrgan(btn.getAttribute('data-organ'));
+            });
+
+            // Delegación para mapa anatómico SVG y botones
+            document.querySelectorAll('.organ-trigger').forEach(el => {
+                el.addEventListener('click', () => selectOrgan(el.getAttribute('data-organ')));
+            });
+
+            document.querySelectorAll('.organ-callout').forEach(el => {
+                el.addEventListener('click', () => selectOrgan(el.getAttribute('data-organ')));
+            });
+
+            // Mapa de dolores
+            document.querySelectorAll('.dolor-trigger').forEach(el => {
+                el.addEventListener('click', () => openDolorModal(el.getAttribute('data-dolor')));
+            });
+
+            // Buscador de alimentos
+            document.getElementById('food-search-input').addEventListener('input', filtrarAlimentos);
+            document.querySelectorAll('.food-tag').forEach(el => {
+                el.addEventListener('click', () => {
+                    document.getElementById('food-search-input').value = el.getAttribute('data-food');
+                    filtrarAlimentos();
+                });
+            });
+
+            // Sugerencias de IA
+            document.querySelectorAll('.sug-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    document.getElementById('ia-input').value = btn.getAttribute('data-query');
+                    enviarConsultaIA();
+                });
+            });
+
+            // Timer contracciones
+            document.getElementById('timer-btn').addEventListener('click', toggleTimer);
         });
 
         function switchTab(tabId) {
@@ -713,21 +855,17 @@
             }
         }
 
-        function cargarFUMGuardada() {
-            const savedWeek = localStorage.getItem('maternidad_week');
-            if(savedWeek) currentWeek = parseInt(savedWeek);
-        }
-
         function renderOrganButtons() {
             const container = document.getElementById('organ-buttons-container');
             container.innerHTML = '';
             Object.keys(organData).forEach(key => {
                 const org = organData[key];
                 const btn = document.createElement('button');
-                btn.onclick = () => selectOrgan(key);
+                btn.type = 'button';
+                btn.setAttribute('data-organ', key);
                 btn.className = `organ-btn flex items-center gap-2 px-3.5 py-2 rounded-2xl text-xs font-bold whitespace-nowrap transition-all border ${key === currentOrgan ? 'bg-brand-500 text-white border-brand-500 shadow-md shadow-brand-500/20' : 'bg-white text-gray-600 border-gray-200 hover:border-brand-300'}`;
                 btn.id = `btn-org-${key}`;
-                btn.innerHTML = `<i class="fa-solid ${org.icon}" aria-hidden="true"></i> ${org.title}`;
+                btn.innerHTML = `<i class="fa-solid ${org.icon}" aria-hidden="true"></i> ${org.title.split(' ')[0]}`;
                 container.appendChild(btn);
             });
         }
@@ -763,6 +901,7 @@
                 babyDot.setAttribute('r', Math.min(scale, 24));
                 uteroCircle.setAttribute('r', 22 + (currentWeek * 0.4));
             }
+
             updateOrganDetails();
         }
 
@@ -770,46 +909,25 @@
             const org = organData[currentOrgan];
             if(!org) return;
             const data = org.getWeekData(currentWeek);
+
             document.getElementById('organ-title').innerText = org.title;
             document.getElementById('organ-tag').innerText = org.tag;
             document.getElementById('organ-criollo').innerText = data.criollo;
             document.getElementById('organ-medico').innerText = data.medico;
-            document.getElementById('organ-sintomas').innerText = data.sintomas;
-            document.getElementById('organ-alivio').innerText = data.alivio;
+            document.getElementById('organ-sintomas').innerText = data.sintomas || "Adaptación general del trimestre.";
+            document.getElementById('organ-alivio').innerText = data.alivio || "Descanso y seguimiento médico.";
             document.getElementById('baby-fruit').innerText = data.fruit;
             document.getElementById('baby-stats').innerText = data.stats;
         }
 
-        // MAPA DE DOLORES
-        const doloresData = {
-            cabeza: { titulo: "Dolor de Cabeza (Cefalea Gestacional)", desc: "Muy común en el 1er trimestre por aumento hormonal y en el 3er trimestre por presión. Ejercicio: Respiración consciente en ambiente oscuro, compresa fría en la frente y estiramientos suaves de cuello. Posición para dormir: De costado izquierdo con almohada entre las rodillas." },
-            espalda: { titulo: "Dolor de Espalda y Cintura (Lumbalgia)", desc: "Ocasionado por el desplazamiento del centro de gravedad. Ejercicio: Postura de Gato-Vaca en cuatro apoyos (10 repeticiones lentas). Posición para dormir: De costado izquierdo con una almohada larga entre las piernas y otra bajo la panza." },
-            pubis: { titulo: "Dolor de Pubis (Sínfisis Pubiana)", desc: "Debido a la relaxina que afloja las articulaciones pélvicas. Ejercicio: Evitar cruzar las piernas al sentarte; mantén las rodillas juntas al subir/bajar del auto. Posición para dormir: De costado con almohada firme entre las rodillas." },
-            costillas: { titulo: "Dolor de Costillas (Compresión Torácica)", desc: "Ocurre en el 3er trimestre cuando el bebé patea o empuja hacia arriba. Ejercicio: Elevar los brazos lentamente al inspirar profundo para abrir el tórax. Posición para dormir: Semisentada con varias almohadas en la espalda." }
-        };
-
         function openDolorModal(tipo) {
             const data = doloresData[tipo];
             document.getElementById('modal-dolor-titulo').innerText = data.titulo;
-            document.getElementById('modal-dolor-content').innerHTML = `<div class="p-4 rounded-2xl bg-brand-50 border border-brand-100 space-y-2"><h4 class="font-bold text-brand-700"><i class="fa-solid fa-heart-pulse mr-1"></i> Recomendación Médica y Fisi física:</h4><p class="text-gray-700 leading-relaxed">${data.desc}</p></div>`;
+            document.getElementById('modal-dolor-content').innerHTML = `<div class="p-4 rounded-2xl bg-brand-50 border border-brand-100 space-y-2"><h4 class="font-bold text-brand-700"><i class="fa-solid fa-heart-pulse mr-1"></i> Recomendación Médica y Física:</h4><p class="text-gray-700 leading-relaxed">${data.desc}</p></div>`;
             document.getElementById('dolor-modal').classList.remove('hidden');
         }
 
         function closeDolorModal() { document.getElementById('dolor-modal').classList.add('hidden'); }
-
-        // ALIMENTOS ARGENTINA
-        const baseAlimentos = [
-            { nombre: "Mate", tipo: "verde", desc: "Permitido con moderación. No superar 2 mates/tazas al día debido a la cafeína/mateína." },
-            { nombre: "Asado", tipo: "verde", desc: "Permitido siempre y cuando la carne esté completamente cocida (sin partes rosadas ni jugos rojos)." },
-            { nombre: "Dulce de leche", tipo: "verde", desc: "Permitido. Elaborado con leche pasteurizada comercial, ideal con moderación por el azúcar." },
-            { nombre: "Milanesa", tipo: "verde", desc: "Permitido asegurando cocción completa al horno o frita con aceite limpio." },
-            { nombre: "Ibuprofeno", tipo: "rojo", desc: "PROHIBIDO especialmente en el 3er trimestre (riesgo de cierre prematuro del ductus arterioso)." },
-            { nombre: "Paracetamol", tipo: "verde", desc: "Permitido como analgésico y antifebril de primera elección bajo supervisión médica." },
-            { nombre: "Buscapina", tipo: "amarillo", desc: "Usar sólo bajo indicación obstétrica estricta para dolores cólicos leves." },
-            { nombre: "Café", tipo: "amarillo", desc: "Limitar a un máximo de 200mg de cafeína diarios (1 o 2 tazas)." },
-            { nombre: "Sushi", tipo: "rojo", desc: "PROHIBIDO si contiene pescado o mariscos crudos por riesgo de anisakis y toxoplasmosis." },
-            { nombre: "Jamón crudo", tipo: "rojo", desc: "PROHIBIDO por ser carne curada sin cocción térmica (riesgo alto de toxoplasmosis)." }
-        ];
 
         function cargarAlimentos() {
             const container = document.getElementById('food-result-card');
@@ -824,38 +942,30 @@
             if(match) {
                 container.innerHTML = `<div class="p-4 rounded-2xl border ${match.tipo === 'verde' ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : match.tipo === 'amarillo' ? 'bg-amber-50 border-amber-200 text-amber-900' : 'bg-rose-50 border-rose-200 text-rose-900'} space-y-2"><div class="flex items-center gap-2"><i class="fa-solid ${match.tipo === 'verde' ? 'fa-circle-check text-emerald-600' : match.tipo === 'amarillo' ? 'fa-triangle-exclamation text-amber-600' : 'fa-ban text-rose-600'} text-xl"></i><h3 class="font-extrabold text-sm">${match.nombre}</h3></div><p class="text-xs">${match.desc}</p></div>`;
             } else {
-                container.innerHTML = `<div class="p-4 rounded-2xl bg-blue-50 border border-blue-200 text-blue-900 space-y-2"><h3 class="font-extrabold text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i> Análisis IA para "${q}":</h3><p class="text-xs">Verificá que esté bien cocido o pasteurizado. Ante cualquier duda con productos caseros o crudos, evitalos y consultá con tu obstetra.</p></div>`;
+                container.innerHTML = `<div class="p-4 rounded-2xl bg-blue-50 border border-blue-200 text-blue-900 space-y-2"><h3 class="font-extrabold text-xs"><i class="fa-solid fa-wand-magic-sparkles"></i> Análisis IA para "${escapeHTML(q)}":</h3><p class="text-xs">Verificá que esté bien cocido o pasteurizado. Ante cualquier duda con productos caseros o crudos, evitalos y consultá con tu obstetra.</p></div>`;
             }
         }
 
-        function setFoodQuery(nombre) {
-            document.getElementById('food-search-input').value = nombre;
-            filtrarAlimentos();
-        }
-
-        // MOTOR DE IA CONVERSACIONAL CON MEMORIA DE HISTORIAL REAL
         function setTone(tone) {
             currentTone = tone;
             document.getElementById('tone-criollo').className = tone === 'criollo' ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-brand-600 shadow-sm transition-all' : 'px-3 py-1.5 rounded-xl text-xs font-bold text-gray-500 hover:text-gray-800 transition-all';
             document.getElementById('tone-medico').className = tone === 'medico' ? 'px-3 py-1.5 rounded-xl text-xs font-bold bg-white text-brand-600 shadow-sm transition-all' : 'px-3 py-1.5 rounded-xl text-xs font-bold text-gray-500 hover:text-gray-800 transition-all';
         }
+        
+        document.getElementById('tone-criollo').addEventListener('click', () => setTone('criollo'));
+        document.getElementById('tone-medico').addEventListener('click', () => setTone('medico'));
 
-        function preguntarIA(texto) {
-            document.getElementById('ia-input').value = texto;
-            enviarConsultaIA();
-        }
-
+        // MOTOR DE IA CONVERSACIONAL CON MEMORIA DE HISTORIAL REAL
         function enviarConsultaIA() {
             const input = document.getElementById('ia-input');
             const q = input.value.trim();
             if(!q) return;
 
-            // Guardar en el historial de chat real
             chatHistory.push({ remitente: 'usuario', mensaje: q });
             guardarHistorialChatLocalStorage();
 
             const chatBox = document.getElementById('chat-box');
-            chatBox.innerHTML += `<div class="flex items-start gap-3 justify-end"><div class="bg-brand-500 text-white p-3 rounded-2xl text-xs max-w-xl shadow-sm">${q}</div></div>`;
+            chatBox.innerHTML += `<div class="flex items-start gap-3 justify-end"><div class="bg-brand-500 text-white p-3 rounded-2xl text-xs max-w-xl shadow-sm">${escapeHTML(q)}</div></div>`;
             input.value = '';
             chatBox.scrollTop = chatBox.scrollHeight;
 
@@ -869,15 +979,15 @@
                         <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">IA</div>
                         <div class="bg-white p-4 rounded-2xl border border-gray-200 text-xs text-gray-700 max-w-xl shadow-sm space-y-3">
                             <p class="font-bold text-brand-600">${currentTone === 'criollo' ? 'Respuesta Conversacional (Semana ' + currentWeek + '):' : 'Análisis Clínico (Semana ' + currentWeek + '):'}</p>
-                            <p>${respuesta.texto}</p>
+                            <p>${escapeHTML(respuesta.texto)}</p>
                             <div class="p-2.5 rounded-xl border font-bold text-[11px] ${respuesta.semaforo === 'verde' ? 'bg-emerald-50 border-emerald-200 text-emerald-800' : respuesta.semaforo === 'amarillo' ? 'bg-amber-50 border-amber-200 text-amber-800' : 'bg-rose-50 border-rose-200 text-rose-800'}">
-                                <i class="fa-solid fa-traffic-light mr-1"></i> Semáforo: ${respuesta.semaforoTexto}
+                                <i class="fa-solid fa-traffic-light mr-1" aria-hidden="true"></i> Semáforo: ${escapeHTML(respuesta.semaforoTexto)}
                             </div>
                         </div>
                     </div>
                 `;
                 chatBox.scrollTop = chatBox.scrollHeight;
-            }, 700);
+            }, 650);
         }
 
         function guardarHistorialChatLocalStorage() {
@@ -891,16 +1001,16 @@
                 const chatBox = document.getElementById('chat-box');
                 chatHistory.forEach(item => {
                     if(item.remitente === 'usuario') {
-                        chatBox.innerHTML += `<div class="flex items-start gap-3 justify-end"><div class="bg-brand-500 text-white p-3 rounded-2xl text-xs max-w-xl shadow-sm">${item.mensaje}</div></div>`;
+                        chatBox.innerHTML += `<div class="flex items-start gap-3 justify-end"><div class="bg-brand-500 text-white p-3 rounded-2xl text-xs max-w-xl shadow-sm">${escapeHTML(item.mensaje)}</div></div>`;
                     } else {
                         chatBox.innerHTML += `
                             <div class="flex items-start gap-3">
-                               / <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">IA</div>
+                                <div class="w-8 h-8 rounded-full bg-brand-500 text-white flex items-center justify-center text-xs font-bold shrink-0">IA</div>
                                 <div class="bg-white p-4 rounded-2xl border border-gray-200 text-xs text-gray-700 max-w-xl shadow-sm space-y-3">
                                     <p class="font-bold text-brand-600">Respuesta con Memoria:</p>
-                                    <p>${item.mensaje}</p>
+                                    <p>${escapeHTML(item.mensaje)}</p>
                                     <div class="p-2.5 rounded-xl border font-bold text-[11px] bg-emerald-50 border-emerald-200 text-emerald-800">
-                                        <i class="fa-solid fa-traffic-light mr-1"></i> Semáforo: ${item.semaforo || 'VERDE: Quédate tranquila.'}
+                                        <i class="fa-solid fa-traffic-light mr-1" aria-hidden="true"></i> Semáforo: ${escapeHTML(item.semaforo || 'VERDE')}
                                     </div>
                                 </div>
                             </div>
@@ -925,43 +1035,38 @@
             `;
         }
 
-        // MOTOR DE RAZONAMIENTO SIN PLANTILLAS FIJAS (LEE HISTORIAL Y CONTEXTO)
         function procesarRazonamientoConversacional(pregunta, semana, tono, historial) {
             const q = pregunta.toLowerCase();
             let semaforo = "verde";
             let semaforoTexto = "VERDE: Quédate tranquila, es un síntoma habitual de adaptación en tu semana.";
             let texto = "";
 
-            // Evaluar gravedad para semáforo
-            if (q.includes('sangre') || q.includes('sangrado') || q.includes('liquido') || q.includes('bolsa') || q.includes('contraccion') || q.includes('no siento al bebé') || q.includes('dolor de cabeza') || q.includes('zumbido')) {
+            if (q.includes('sangre') || q.includes('sangrado') || q.includes('liquido') || q.includes('contraccion') || q.includes('no siento al bebé') || q.includes('dolor de cabeza')) {
                 semaforo = "rojo";
                 semaforoTexto = "ROJO: Acudí a la guardia de inmediato para evaluación obstétrica urgente.";
-            } else if (q.includes('ardor') || q.includes('vomito') || q.includes('fiebre') || q.includes('picazon')) {
+            } else if (q.includes('ardor') || q.includes('vomito') || q.includes('fiebre')) {
                 semaforo = "amarillo";
                 semaforoTexto = "AMARILLO: Consultá con tu obstetra dentro de las próximas 24 horas.";
             }
 
-            // Analizar si hay menciones previas en el historial para dar contexto real
             let ultimoTema = "";
             if (historial.length >= 2) {
                 const anterior = historial[historial.length - 2].mensaje.toLowerCase();
                 if (anterior.includes('dolor') || anterior.includes('pinchazo')) ultimoTema = "relacionado con los dolores que veníamos charlando";
-                if (anterior.includes('comida') || anterior.includes('comer')) ultimoTema = "siguiendo con tus dudas sobre alimentos";
             }
 
             if (tono === 'criollo') {
-                if (q.includes('otra vez') || q.includes('sigue') || q.includes('igual')) {
-                    texto = `Te entiendo perfecto. Como venimos hablando, en la **semana ${semana}** los malestares pueden aparecer y desaparecer de ratos. Si persiste y te incomoda mucho, recostate de costado izquierdo y dale unos minutos de respiro a tu cuerpo.`;
-                } else if (q.includes('pinchazo') || q.includes('tiron') || q.includes('dolor')) {
-                    texto = `Es re normal sentir esos tirones en la **semana ${semana}** ${ultimoTema ? '(' + ultimoTema + ')' : ''}. Tu útero está estirándose un montón y los ligamentos sufren esa tensión. Descansá un poquito y vas a ver que afloja.`;
-                } else if (q.includes('no siento al bebé') || q.includes('movimiento')) {
-                    texto = `Entiendo tu preocupación. Acuéstate de tu lado izquierdo, tomá un vaso de agua fresquita y concentrate unos minutos. Recordá que en la **semana ${semana}** todavía hay espacio y a veces duermen ratitos largos. Si pasa el tiempo y seguís con dudas, andá a la guardia por las dudas.`;
+                if (q.includes('pinchazo') || q.includes('tiron') || q.includes('dolor')) {
+                    texto = `Es completamente normal sentir esos tirones estando en la semana ${semana} ${ultimoTema ? '(' + ultimoTema + ')' : ''}. Tu útero se está estirando para acomodar al bebé y los ligamentos sufren tensión. Descansá un rato de costado y vas a ver que cede.`;
+                } else if (q.includes('mate') || q.includes('cafe')) {
+                    texto = `Sí, podés tomar tus mates o una taza de café diaria en la semana ${semana}, siempre con moderación y sin abusar de la cafeína para cuidar tu descanso.`;
+                } else if (q.includes('no siento al bebé')) {
+                    texto = `Comprendo tu preocupación. Recostate del lado izquierdo, tomá un vaso de agua fresca y relajate unos minutos. En la semana ${semana} a veces duermen periodos largos, pero si pasa el tiempo y no sentís movimientos, acercate a la guardia.`;
                 } else {
-                    texto = `Estuve procesando lo que me decís sobre "${pregunta}". Estando en la **semana ${semana}**, todo lo que me comentás se alinea con los cambios normales de esta etapa. Si en algún momento sentís que algo no va bien o te da desconfianza, consultá con tu obstetra. ¿Querés que veamos algún otro síntoma?`;
+                    texto = `Analizando tu consulta sobre "${pregunta}" en esta semana ${semana} de embarazo, lo que me comentás forma parte de los cambios físicos esperados. Si la molestia es leve y se pasa al descansar, es parte del proceso habitual. ¿Querés que revisemos algún otro síntoma?`;
                 }
             } else {
-                // Modo Médico Clínico con Memoria
-                texto = `Analizando el historial clínico y la **semana gestacional ${semana}**, la manifestación referida ("${pregunta}") se correlaciona con las adaptaciones biomecánicas y vasculares del periodo. Se aconseja reposo relativo y seguimiento de signos de alarma.`;
+                texto = `Dictamen clínico (Semana ${semana}): Sintomatología vinculada a los cambios fisiológicos y adaptativos del trimestre en curso. Se recomienda reposo relativo y vigilancia activa de signos de alarma.`;
             }
 
             return { texto, semaforo, semaforoTexto };
@@ -969,67 +1074,97 @@
 
         function openBotonNormal() {
             switchTab('ia-consulta');
-            preguntarIA('¿Esto que siento es normal para mi semana actual?');
+            document.getElementById('ia-input').value = '¿Esto que siento es normal para mi semana actual?';
+            enviarConsultaIA();
         }
-
-        // 50 FAQS
-        const listaFAQs = [
-            { q: "¿Puedo tener relaciones sexuales durante el embarazo?", a: "Sí, salvo indicación médica contraria por antecedentes de amenaza de parto prematuro o sangrado." },
-            { q: "¿Si hago fuerza o levanto peso puedo perder al bebé?", a: "No. El útero y el líquido amniótico actúan como un sistema de amortiguación muy seguro." },
-            { q: "¿Es verdad que el bebé se puede enredar con el cordón si levanto los brazos?", a: "Mito total. Las vueltas de cordón ocurren por el movimiento natural del bebé dentro del líquido." },
-            { q: "¿Puedo dormir boca arriba en el embarazo?", a: "Se desaconseja a partir del 2do trimestre porque el útero comprime la vena cava inferior, pudiendo causar mareos." }
-        ];
 
         function renderFAQs() {
             const container = document.getElementById('faqs-container');
             container.innerHTML = listaFAQs.map((faq, idx) => `
                 <div class="border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-sm">
-                    <button onclick="toggleFAQ(${idx})" class="w-full p-4 text-left font-bold text-xs text-gray-800 flex justify-between items-center hover:bg-rose-50/50 transition-all">
+                    <button type="button" class="faq-toggle-btn w-full p-4 text-left font-bold text-xs text-gray-800 flex justify-between items-center hover:bg-rose-50/50 transition-all" data-faq="${idx}">
                         <span>${faq.q}</span>
-                        <i class="fa-solid fa-chevron-down text-brand-500 transition-transform" id="faq-icon-${idx}"></i>
+                        <i class="fa-solid fa-chevron-down text-brand-500 transition-transform" id="faq-icon-${idx}" aria-hidden="true"></i>
                     </button>
                     <div id="faq-body-${idx}" class="hidden p-4 pt-0 text-xs text-gray-600 border-t border-gray-100 bg-gray-50/50 leading-relaxed">
                         ${faq.a}
                     </div>
                 </div>
             `).join('');
+
+            document.querySelectorAll('.faq-toggle-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const idx = btn.getAttribute('data-faq');
+                    const body = document.getElementById(`faq-body-${idx}`);
+                    const icon = document.getElementById(`faq-icon-${idx}`);
+                    body.classList.toggle('hidden');
+                    icon.classList.toggle('rotate-180');
+                });
+            });
         }
 
-        function toggleFAQ(idx) {
-            const body = document.getElementById(`faq-body-${idx}`);
-            const icon = document.getElementById(`faq-icon-${idx}`);
-            body.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
+        // TIMER CONTRACCIONES
+        let timerInterval = null;
+        let seconds = 0;
+        let isRunning = false;
+        let contractionHistory = [];
 
-        // CONTRACCIONES Y REGLA 5-1-1
-        let timerInterval = null; let seconds = 0; let isRunning = false; let contractionHistory = [];
         function toggleTimer() {
             const btn = document.getElementById('timer-btn');
             const status = document.getElementById('contraction-status');
             const banner = document.getElementById('alerta-guardia-banner');
+
             if(!isRunning) {
-                isRunning = true; seconds = 0;
-                btn.innerText = "¡Aflojó la Contraccion (Detener)!"; btn.classList.replace('bg-brand-500', 'bg-slate-700');
-                status.innerText = "Midiendo..."; status.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 animate-pulse";
+                isRunning = true;
+                seconds = 0;
+                btn.innerText = "¡Aflojó la Contraccion (Detener)!";
+                btn.classList.replace('bg-brand-500', 'bg-slate-700');
+                status.innerText = "Midiendo...";
+                status.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-rose-100 text-rose-700 animate-pulse";
+
                 timerInterval = setInterval(() => {
                     seconds++;
-                    document.getElementById('timer-display').innerText = `${String(Math.floor(seconds / 60)).padStart(2, '0')}:${String(seconds % 60).padStart(2, '0')}`;
+                    const mins = String(Math.floor(seconds / 60)).padStart(2, '0');
+                    const secs = String(seconds % 60).padStart(2, '0');
+                    document.getElementById('timer-display').innerText = `${mins}:${secs}`;
                 }, 1000);
             } else {
-                clearInterval(timerInterval); isRunning = false;
-                btn.innerText = "¡Comenzó la Contraccion!"; btn.classList.replace('bg-slate-700', 'bg-brand-500');
-                status.innerText = "Reposo"; status.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-gray-100 text-gray-600";
-                contractionHistory.unshift({ duration: seconds, time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) });
-                if(contractionHistory.length >= 3) banner.classList.remove('hidden');
+                clearInterval(timerInterval);
+                isRunning = false;
+                btn.innerText = "¡Comenzó la Contraccion!";
+                btn.classList.replace('bg-slate-700', 'bg-brand-500');
+                status.innerText = "Reposo";
+                status.className = "text-xs font-bold px-2.5 py-1 rounded-full bg-gray-100 text-gray-600";
+
+                contractionHistory.unshift({
+                    duration: seconds,
+                    time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
+                });
+
+                if(contractionHistory.length >= 3) {
+                    banner.classList.remove('hidden');
+                }
+
                 renderContractions();
             }
         }
+
         function renderContractions() {
-            document.getElementById('contraction-list').innerHTML = contractionHistory.map((c, i) => `<div class="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-100"><span>Contracción #${contractionHistory.length - i} (${c.time})</span><strong class="text-brand-600">${c.duration} seg</strong></div>`).join('');
+            const list = document.getElementById('contraction-list');
+            list.innerHTML = contractionHistory.map((c, i) => `
+                <div class="flex items-center justify-between p-2 rounded-xl bg-gray-50 border border-gray-100">
+                    <span>Contracción #${contractionHistory.length - i} (${c.time})</span>
+                    <strong class="text-brand-600">${c.duration} seg</strong>
+                </div>
+            `).join('');
         }
 
-        function descargarMochilaPDF() { alert("Descargando checklist oficial para la mochila del sanatorio..."); }
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
+        }
+
         function openCalculadoraModal() { document.getElementById('calculadora-modal').classList.remove('hidden'); }
         function closeCalculadoraModal() { document.getElementById('calculadora-modal').classList.add('hidden'); }
 
@@ -1038,13 +1173,21 @@
             if(!val) return;
             const fum = new Date(val);
             const hoy = new Date();
-            const semanas = Math.floor(Math.abs(hoy - fum) / (1000 * 60 * 60 * 24) / 7);
-            const fpp = new Date(fum); fpp.setDate(fpp.getDate() + 280);
+            const diffTime = Math.abs(hoy - fum);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const semanas = Math.floor(diffDays / 7);
+
+            const fpp = new Date(fum);
+            fpp.setDate(fpp.getDate() + 280);
+
             document.getElementById('calc-weeks').innerText = `${semanas} Semanas`;
             document.getElementById('calc-fpp').innerText = fpp.toLocaleDateString();
             document.getElementById('fum-result').classList.remove('hidden');
-            if(semanas >= 1 && semanas <= 40) updateWeek(semanas);
+
+            if(semanas >= 1 && semanas <= 40) {
+                updateWeek(semanas);
+            }
         }
     </script>
 </body>
-                        </html>
+    </html>

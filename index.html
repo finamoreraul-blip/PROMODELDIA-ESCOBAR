@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maternidad 360 - Guía Médica y Asistente IA 24/7 para Embarazadas en Argentina</title>
-    <meta name="description" content="Plataforma médica interactiva definitiva para el embarazo primeriza semana a semana en Argentina. Asistente IA 24/7 con memoria contextual, calculadora FUM, alertas de guardia y buscador de alimentos.">
-    <meta name="keywords" content="embarazo primeriza argentina, semana a semana, guia medica embarazo, ia obstetrica, contracciones 5 1 1, preeclampsia guardia">
+    <title>Maternidad 360 - Guía Médica, Asistente IA 24/7 y Manual de Parejas en Argentina</title>
+    <meta name="description" content="Plataforma médica interactiva definitiva para el embarazo primeriza semana a semana en Argentina. Asistente IA 24/7 con memoria contextual, calculadora FUM avanzada, 50 FAQs, manual para padres y alertas de guardia.">
+    <meta name="keywords" content="embarazo primeriza argentina, semana a semana, guia medica embarazo, ia obstetrica, manual para padres embarazo, contracciones 5 1 1, 50 faqs embarazo">
     <link rel="canonical" href="https://maternidad360.com.ar/">
 
     <!-- Tailwind CSS CDN -->
@@ -94,7 +94,7 @@
                 </div>
                 <div>
                     <h1 class="text-xl font-bold bg-gradient-to-r from-brand-600 to-rose-500 bg-clip-text text-transparent">Maternidad 360</h1>
-                    <p class="text-xs text-gray-500 font-medium">Guía #1 para Embarazadas Primerizas en Argentina</p>
+                    <p class="text-xs text-gray-500 font-medium">Guía #1 para Embarazadas y Parejas en Argentina</p>
                 </div>
             </div>
 
@@ -102,11 +102,17 @@
                 <button onclick="switchTab('anatomia')" class="nav-btn active px-3.5 py-2 rounded-full text-xs font-semibold transition-all bg-white text-brand-600 shadow-sm" id="btn-anatomia">
                     <i class="fa-solid fa-child-reaching mr-1"></i>Anatomía & Semanas
                 </button>
+                <button onclick="switchTab('fum')" class="nav-btn px-3.5 py-2 rounded-full text-xs font-semibold text-gray-600 hover:text-brand-600 transition-all" id="btn-fum">
+                    <i class="fa-solid fa-calendar-days mr-1"></i>Calculadora FUM
+                </button>
                 <button onclick="switchTab('dolores')" class="nav-btn px-3.5 py-2 rounded-full text-xs font-semibold text-gray-600 hover:text-brand-600 transition-all" id="btn-dolores">
                     <i class="fa-solid fa-hand-holding-medical mr-1"></i>Mapa de Dolores
                 </button>
                 <button onclick="switchTab('alimentos')" class="nav-btn px-3.5 py-2 rounded-full text-xs font-semibold text-gray-600 hover:text-brand-600 transition-all" id="btn-alimentos">
                     <i class="fa-solid fa-utensils mr-1"></i>Alimentos 100+
+                </button>
+                <button onclick="switchTab('manual-padres')" class="nav-btn px-3.5 py-2 rounded-full text-xs font-semibold text-gray-600 hover:text-brand-600 transition-all" id="btn-manual-padres">
+                    <i class="fa-solid fa-hands-holding-child mr-1"></i>Manual de Padres
                 </button>
                 <button onclick="switchTab('ia-consulta')" class="nav-btn px-3.5 py-2 rounded-full text-xs font-semibold text-gray-600 hover:text-brand-600 transition-all" id="btn-ia-consulta">
                     <i class="fa-solid fa-wand-magic-sparkles mr-1"></i>IA Conversacional 24/7
@@ -126,7 +132,7 @@
                 <a href="https://wa.me/5491100000000?text=Hola,%20soy%20primeriza%20en%20Argentina%20y%20necesito%20hablar%20con%20una%20partera" target="_blank" class="hidden sm:flex items-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold px-3.5 py-2.5 rounded-full transition-all shadow-md">
                     <i class="fa-brands fa-whatsapp text-sm" aria-hidden="true"></i> Partera 24/7
                 </a>
-                <button onclick="openCalculadoraModal()" class="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-full transition-all shadow-md shadow-brand-500/20">
+                <button onclick="switchTab('fum')" class="flex items-center gap-2 bg-brand-500 hover:bg-brand-600 text-white text-xs font-bold px-4 py-2.5 rounded-full transition-all shadow-md shadow-brand-500/20">
                     <i class="fa-solid fa-calculator" aria-hidden="true"></i>
                     <span id="current-week-badge">Semana 12</span>
                 </button>
@@ -136,8 +142,10 @@
         <!-- Mobile Navigation Bar -->
         <div class="xl:hidden flex overflow-x-auto gap-2 px-4 py-2.5 bg-white border-t border-brand-100 no-scrollbar">
             <button onclick="switchTab('anatomia')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold bg-brand-50 text-brand-600">Anatomía</button>
+            <button onclick="switchTab('fum')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">FUM</button>
             <button onclick="switchTab('dolores')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">Dolores</button>
             <button onclick="switchTab('alimentos')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">Alimentos</button>
+            <button onclick="switchTab('manual-padres')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">Manual Padres</button>
             <button onclick="switchTab('ia-consulta')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">IA Médica</button>
             <button onclick="switchTab('faqs')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">50 FAQs</button>
             <button onclick="switchTab('guardia')" class="whitespace-nowrap px-3 py-1.5 rounded-lg text-xs font-semibold text-gray-600">Guardia</button>
@@ -167,7 +175,7 @@
                 <div class="bg-white p-4 rounded-2xl border border-brand-100 shadow-sm w-full md:w-auto min-w-[280px]">
                     <div class="flex items-center justify-between mb-2">
                         <span class="text-xs font-bold text-gray-500 uppercase">Semana Gestacional</span>
-                        <button onclick="openCalculadoraModal()" class="text-xs text-brand-600 hover:underline font-semibold flex items-center gap-1">
+                        <button onclick="switchTab('fum')" class="text-xs text-brand-600 hover:underline font-semibold flex items-center gap-1">
                             <i class="fa-solid fa-calendar-days" aria-hidden="true"></i> Cargar FUM
                         </button>
                     </div>
@@ -254,17 +262,6 @@
                         <button data-organ="utero" class="organ-trigger absolute top-[220px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Útero & Bebé</button>
                         <button data-organ="vejiga" class="organ-trigger absolute top-[285px] right-[0px] text-xs font-extrabold bg-white px-3 py-1.5 rounded-full border border-brand-200 text-brand-600 shadow-md hover:scale-105 transition-all">Vejiga</button>
                     </div>
-
-                    <div class="mt-4 w-full bg-emerald-50 border border-emerald-200 p-3.5 rounded-2xl flex items-center justify-between">
-                        <div class="flex items-center gap-2.5">
-                            <i class="fa-brands fa-whatsapp text-emerald-600 text-xl" aria-hidden="true"></i>
-                            <div>
-                                <h4 class="text-xs font-bold text-emerald-900">¿Dudas urgentes?</h4>
-                                <p class="text-[11px] text-emerald-700">Habla con una partera matriculada en Argentina.</p>
-                            </div>
-                        </div>
-                        <a href="https://wa.me/5491100000000?text=Hola,%20necesito%20hablar%20con%20una%20partera" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs px-3.5 py-2 rounded-xl transition-all shadow-sm">Hablar</a>
-                    </div>
                 </div>
 
                 <div class="lg:col-span-7 space-y-6">
@@ -322,6 +319,48 @@
                     </div>
                 </div>
 
+            </div>
+        </section>
+
+        <!-- TAB NUEVA: CALCULADORA FUM AVANZADA -->
+        <section id="tab-fum" class="tab-content hidden space-y-6">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl bg-white border border-brand-100 shadow-sm max-w-2xl mx-auto space-y-6">
+                <div class="text-center space-y-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700">
+                        <i class="fa-solid fa-calendar-days mr-1" aria-hidden="true"></i> Herramienta Obstétrica Oficial
+                    </span>
+                    <h2 class="text-2xl font-extrabold text-gray-800">Calculadora de Semanas de Embarazo por FUM</h2>
+                    <p class="text-xs text-gray-600">Ingresa la Fecha de tu Última Menstruación (FUM) para calcular automáticamente tu semana gestacional exacta, trimestre actual y Fecha Probable de Parto (Regla de Naegele).</p>
+                </div>
+
+                <div class="space-y-4 bg-brand-50/50 p-6 rounded-2xl border border-brand-100">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-700 mb-1.5">Fecha de Última Menstruación (FUM):</label>
+                        <input type="date" id="fum-input-tab" class="w-full px-4 py-3 rounded-xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none bg-white">
+                    </div>
+                    <button id="calcular-fum-btn" type="button" class="w-full bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs py-3.5 rounded-xl shadow-md shadow-brand-500/20 transition-all">
+                        <i class="fa-solid fa-calculator mr-1.5" aria-hidden="true"></i> Calcular Edad Gestacional
+                    </button>
+                </div>
+
+                <div id="fum-tab-result" class="hidden p-6 rounded-2xl bg-gradient-to-r from-rose-50 to-brand-50 border border-brand-200 space-y-4 text-center">
+                    <h3 class="font-extrabold text-sm text-brand-800">Resultado Obstétrico Sincronizado</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                        <div class="bg-white p-3 rounded-xl border border-brand-100 shadow-sm">
+                            <span class="text-[11px] text-gray-400 block uppercase font-bold">Semana Actual</span>
+                            <span id="res-semanas" class="text-lg font-extrabold text-brand-600">--</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-brand-100 shadow-sm">
+                            <span class="text-[11px] text-gray-400 block uppercase font-bold">Trimestre</span>
+                            <span id="res-trimestre" class="text-sm font-extrabold text-gray-800">--</span>
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-brand-100 shadow-sm">
+                            <span class="text-[11px] text-gray-400 block uppercase font-bold">Parto Estimado (FPP)</span>
+                            <span id="res-fpp" class="text-sm font-extrabold text-gray-800">--/--/----</span>
+                        </div>
+                    </div>
+                    <p class="text-[11px] text-gray-500 italic">Esta fecha se sincronizó automáticamente con el simulador de anatomía y la asistente IA.</p>
+                </div>
             </div>
         </section>
 
@@ -389,6 +428,53 @@
             <div id="food-result-card" class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6"></div>
         </section>
 
+        <!-- TAB NUEVA: MANUAL COMPLETO DE ACOMPAÑAMIENTO DE PADRES -->
+        <section id="tab-manual-padres" class="tab-content hidden space-y-6">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-8">
+                <div class="max-w-3xl space-y-2">
+                    <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700">
+                        <i class="fa-solid fa-hands-holding-child mr-1" aria-hidden="true"></i> Guía Esencial para Parejas y Padres Primerizos
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-gray-800">Manual de Acompañamiento Durante el Embarazo y Puerperio</h2>
+                    <p class="text-xs sm:text-sm text-gray-600 leading-relaxed">El rol del padre o la pareja es fundamental como sostén emocional, logístico y afectivo. Aquí tienes el manual paso a paso sobre cómo acompañar de forma activa en Argentina.</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="p-6 rounded-3xl bg-rose-50/60 border border-rose-100 space-y-3">
+                        <div class="flex items-center gap-3 text-brand-700 font-extrabold text-sm">
+                            <div class="w-8 h-8 rounded-xl bg-brand-500 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-heart" aria-hidden="true"></i></div>
+                            <h3>1. Contención Emocional y Labilidad</h3>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">Las fluctuaciones hormonales en el primer y tercer trimestre generan cambios bruscos de humor, sensibilidad y ansiedad. El rol del padre es escuchar sin juzgar, validar sus miedos y evitar minimizar sus emociones bajo la frase "no es para tanto".</p>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-slate-50 border border-slate-200/80 space-y-3">
+                        <div class="flex items-center gap-3 text-slate-700 font-extrabold text-sm">
+                            <div class="w-8 h-8 rounded-xl bg-slate-700 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-calendar-check" aria-hidden="true"></i></div>
+                            <h3>2. Participación Activa en Consultas y Ecografías</h3>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">Acompañarla a cada control obstétrico y ecografía no es opcional. Anotar las dudas que surgen en la semana para consultarle al obstetra demuestra compromiso activo y reduce la carga mental de la mamá.</p>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-amber-50/70 border border-amber-100 space-y-3">
+                        <div class="flex items-center gap-3 text-amber-800 font-extrabold text-sm">
+                            <div class="w-8 h-8 rounded-xl bg-amber-500 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-house-chimney-medical" aria-hidden="true"></i></div>
+                            <h3>3. Organización del Hogar y Logística</h3>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">Asumir el liderazgo de las tareas domésticas (limpieza, compras, cocina) es vital a medida que avanza la gestación. Preparar el cuarto del bebé, armar la sillita de auto y tener listas las gestiones con la obra social/prepaga alivia la tensión previa al parto.</p>
+                    </div>
+
+                    <div class="p-6 rounded-3xl bg-emerald-50/70 border border-emerald-100 space-y-3">
+                        <div class="flex items-center gap-3 text-emerald-800 font-extrabold text-sm">
+                            <div class="w-8 h-8 rounded-xl bg-emerald-600 text-white flex items-center justify-center text-xs"><i class="fa-solid fa-hands-bubbles" aria-hidden="true"></i></div>
+                            <h3>4. Rol Clave en el Trabajo de Parto y Puerperio</h3>
+                        </div>
+                        <p class="text-xs text-gray-700 leading-relaxed">En la clínica o sanatorio, sé el defensor de su plan de parto, colabora con los ejercicios de respiración y sé el filtro frente a visitas inoportunas. En el puerperio, ocupate de los cambios de pañal, los baños y asegurate de que ella descanse y se alimente bien.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- TAB 4: IA MÉDICA 24/7 CON MOTOR DE CONTEXTO DINÁMICO REAL -->
         <section id="tab-ia-consulta" class="tab-content hidden space-y-6">
             <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-4">
@@ -437,18 +523,18 @@
             </div>
         </section>
 
-        <!-- TAB 5: 50 PREGUNTAS FRECUENTES (FAQS ACORDEÓN) -->
+        <!-- TAB 5: 50 PREGUNTAS FRECUENTES (FAQS ACORDEÓN COMPLETAS) -->
         <section id="tab-faqs" class="tab-content hidden space-y-6">
-            <div class="glass-panel p-6 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6">
+            <div class="glass-panel p-6 sm:p-8 rounded-3xl bg-white border border-brand-100 shadow-sm space-y-6">
                 <div>
                     <span class="px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700">
-                        <i class="fa-solid fa-circle-question" aria-hidden="true"></i> Banco de Dudas Primerizas
+                        <i class="fa-solid fa-circle-question" aria-hidden="true"></i> Banco Oficial de Dudas Primerizas
                     </span>
-                    <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Preguntas Frecuentes (FAQs) sobre el Embarazo</h2>
-                    <p class="text-xs text-gray-600">Resolvemos los mitos y verdades más buscados en Google por embarazadas en Argentina.</p>
+                    <h2 class="text-2xl font-extrabold text-gray-800 mt-1">Las 50 Preguntas Más Frecuentes sobre el Embarazo</h2>
+                    <p class="text-xs text-gray-600">Resolvemos mitos, verdades y consultas habituales de mamás primerizas en Argentina.</p>
                 </div>
 
-                <div class="space-y-3" id="faqs-container"></div>
+                <div class="space-y-3 max-h-[600px] overflow-y-auto pr-2" id="faqs-container"></div>
             </div>
         </section>
 
@@ -575,31 +661,6 @@
 
     </main>
 
-    <!-- MODAL CALCULADORA FUM -->
-    <div id="calculadora-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-panel bg-white p-6 rounded-3xl max-w-md w-full border border-brand-200 shadow-2xl space-y-4">
-            <div class="flex items-center justify-between border-b border-gray-100 pb-3">
-                <h3 class="font-extrabold text-gray-800 flex items-center gap-2">
-                    <i class="fa-solid fa-calendar-check text-brand-500" aria-hidden="true"></i> Calcular Edad Gestacional (FUM)
-                </h3>
-                <button onclick="closeCalculadoraModal()" class="text-gray-400 hover:text-gray-600"><i class="fa-solid fa-xmark text-lg" aria-hidden="true"></i></button>
-            </div>
-            <div class="space-y-3">
-                <label class="block text-xs font-bold text-gray-600">Fecha de Última Menstruación:</label>
-                <input type="date" id="fum-date" class="w-full px-4 py-2.5 rounded-2xl border border-gray-200 text-sm focus:ring-2 focus:ring-brand-200 outline-none" aria-label="Fecha de última menstruación">
-            </div>
-            <div id="fum-result" class="hidden p-4 rounded-2xl bg-brand-50 border border-brand-100 space-y-1 text-xs text-gray-700">
-                <p>Estás en la semana: <strong id="calc-weeks" class="text-brand-600 text-sm">--</strong></p>
-                <p>Fecha Probable de Parto (FPP): <strong id="calc-fpp" class="text-gray-800">--/--/----</strong></p>
-            </div>
-            <div class="flex gap-2 justify-end pt-2">
-                <button id="calc-save-btn" type="button" class="bg-brand-500 hover:bg-brand-600 text-white font-bold text-xs px-5 py-2.5 rounded-xl shadow-md">
-                    Guardar y Sincronizar
-                </button>
-            </div>
-        </div>
-    </div>
-
     <!-- MODAL DOLORES / MAPA DE CALOR -->
     <div id="dolor-modal" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
         <div class="glass-panel bg-white p-6 rounded-3xl max-w-lg w-full border border-brand-200 shadow-2xl space-y-4">
@@ -611,7 +672,7 @@
         </div>
     </div>
 
-    <!-- SCRIPT DE GESTIÓN INTEGRAL Y NUEVO MOTOR DE IA CONVERSACIONAL REAL -->
+    <!-- SCRIPT DE GESTIÓN INTEGRAL CON LAS 50 FAQS Y FUM -->
     <script>
         const organData = {
             utero: {
@@ -755,6 +816,7 @@
             { nombre: "Queso cremoso / cuart", tipo: "verde", desc: "Permitido si la etiqueta aclara que es elaborado con leche pasteurizada." }
         ];
 
+        // BANCO DE LAS 50 FAQS COMPLETAS
         const listaFAQs = [
             { q: "¿Puedo tener relaciones sexuales durante el embarazo?", a: "Sí, salvo indicación médica contraria por antecedentes de amenaza de parto prematuro o sangrado." },
             { q: "¿Si hago fuerza o levanto peso puedo perder al bebé?", a: "No. El útero y el líquido amniótico actúan como un sistema de amortiguación muy seguro." },
@@ -763,7 +825,49 @@
             { q: "¿Puedo teñirme el pelo?", a: "Se recomienda esperar pasada la semana 12 y usar tinturas sin amoníaco o en ambientes ventilados." },
             { q: "¿Es normal tener flujo abundante blanco?", a: "Sí, la leucorrea aumenta por los niveles de estrógenos, siempre que no tenga mal olor ni picazón." },
             { q: "¿Puedo hacerme estudios odontológicos?", a: "Sí, el segundo trimestre es el momento ideal para arreglos dentales avisando siempre al odontólogo que estás embarazada." },
-            { q: "¿Por qué siento piquetes en la vagina?", a: "Suele deberse a la presión de la cabecita del bebé sobre los nervios de la pelvis o al estiramiento de ligamentos." }
+            { q: "¿Por qué siento piquetes en la vagina?", a: "Suele deberse a la presión de la cabecita del bebé sobre los nervios de la pelvis o al estiramiento de ligamentos." },
+            { q: "¿Puedo viajar en avión durante el embarazo?", a: "Sí, por lo general hasta la semana 36 en embarazos sin complicaciones, consultando siempre las normas de la aerolínea." },
+            { q: "¿Es seguro tomar mate o café?", a: "Sí, con moderación. Se recomienda no superar las 2 tazas diarias para mantener la cafeína bajo control." },
+            { q: "¿Puedo hacer ejercicio o ir al gimnasio?", a: "Sí, si el obstetra lo autoriza. Caminar, natación y yoga prenatal son excelentes opciones." },
+            { q: "¿Por qué siento tanta acidez estomacal?", a: "Por la progesterona que relaja las válvulas estomacales y la compresión del útero." },
+            { q: "¿Es normal soñar cosas muy raras y vívidas?", a: "Sí, los cambios hormonales y el procesamiento inconsciente generan sueños muy intensos." },
+            { q: "¿Puedo comer embutidos o fiambres?", a: "Se deben evitar crudos (como jamón crudo o salame) por riesgo de toxoplasmosis, salvo que estén cocidos." },
+            { q: "¿Qué pasa si tengo antojos raros?", a: "Son habituales por los cambios nutricionales, siempre que no impliquen comer sustancias no alimentarias (pica)." },
+            { q: "¿Puedo usar la computadora o el celular?", a: "Sí, no emiten radiaciones ionizantes que afecten al bebé." },
+            { q: "¿Es normal sentir mareos al levantarme de la cama?", a: "Sí, por el aumento del volumen sanguíneo y la baja presión transitoria del segundo trimestre." },
+            { q: "¿Cuándo empiezan a sentirse las pataditas del bebé?", a: "Suele ser entre la semana 18 y 22 en primerizas (o antes en secundigestas)." },
+            { q: "¿Puedo usar esmalte de uñas y perfumes?", a: "Sí, en ambientes ventilados no representan un riesgo significativo." },
+            { q: "¿Es obligatorio tomar ácido fólico?", a: "Es fundamental antes de concebir y durante el primer trimestre para prevenir defectos del tubo neural." },
+            { q: "¿Por qué se me hinchan los tobillos al final del día?", a: "Por retención de líquidos fisiológica y presión venosa en las piernas." },
+            { q: "¿Puedo tomar antibióticos si me enfermo?", a: "Sólo aquellos recetados por tu médico que sean seguros en el embarazo (como penicilinas)." },
+            { q: "¿Es normal tener constipación o estreñimiento?", a: "Sí, la progesterona enlentece el tránsito intestinal." },
+            { q: "¿Puedo comer sushi?", a: "Se desaconseja si contiene pescado o mariscos crudos por riesgo de infecciones bacterianas o parasitarias." },
+            { q: "¿Qué es el tapón mucoso y cuándo se expulsa?", a: "Es una mucosidad que sella el cuello uterino; su expulsión puede ocurrir días antes del parto." },
+            { q: "¿Puedo tomar mate cocido o té?", a: "Sí, vigilando el contenido de teína/cafeína." },
+            { q: "¿Es seguro hacerme masajes descontracturantes?", a: "Sí, avisando al terapista que estás embarazada y evitando zonas de presión profunda en abdomen." },
+            { q: "¿Por qué me sale calambre en las pantorrillas a la noche?", a: "Por fatiga muscular, alteración del calcio/magnesio y compresión circulatoria." },
+            { q: "¿Puedo tomar analgésicos de venta libre?", a: "El paracetamol es el de primera elección. Evita ibuprofeno y aspirina." },
+            { q: "¿Es normal que me duela la cintura al caminar mucho?", a: "Sí, por el cambio en el eje de gravedad y la distensión lumbar." },
+            { q: "¿Puedo bañarme en piletas o mar?", a: "Sí, siempre que el cuello uterino esté cerrado y el agua sea segura e higiénica." },
+            { q: "¿Por qué siento palpitaciones o taquicardia leve?", a: "Porque tu corazón bombea un 45% más de sangre para abastecer a la placenta." },
+            { q: "¿Puedo hacerme depilación láser o con cera?", a: "La cera es segura. El láser suele postergarse por precaución médica durante la gestación." },
+            { q: "¿Es normal tener encías sangrantes al cepillarme?", a: "Sí, por la gingivitis gravídica debida al mayor flujo sanguíneo en mucosas." },
+            { q: "¿Qué vacunas debo darme durante el embarazo?", a: "Antigripal, triple bacteriana acelular (tos convusa) y COVID-19 según calendario oficial." },
+            { q: "¿Puedo usar aire acondicionado o calefacción?", a: "Sí, manteniendo temperaturas templadas y evitando choques térmicos bruscos." },
+            { q: "¿Es normal perder un poco de calostro antes del parto?", a: "Sí, las mamas empiezan a prepararse para la lactancia desde el segundo trimestre." },
+            { q: "¿Puedo manejar mi auto?", a: "Sí, usando el cinturón de seguridad correctamente por debajo de la panza (cruzando la cadera)." },
+            { q: "¿Qué pasa si tengo relaciones y siento contracciones leves después?", a: "Es habitual que el útero se ponga duro un momento por la oxitocina; si cede al reposo, no hay problema." },
+            { q: "¿Es normal sentir piquetes en los pezones?", a: "Sí, por el desarrollo de los conductos mamarios y la tensión en la areola." },
+            { q: "¿Puedo comer asado o carne jugosa?", a: "Debe consumirse completamente cocida para evitar toxoplasmosis." },
+            { q: "¿Puedo usar tintura si es natural o orgánica?", a: "Aun así se sugiere precaución y ventilación adecuada, preferentemente tras la semana 12." },
+            { q: "¿Es normal que me cueste conciliar el sueño?", a: "Sí, por incomodidad postural, visitas al baño nocturnas y ansiedad." },
+            { q: "¿Puedo tomar jugo de limón para las náuseas?", a: "Muchas mamás encuentran alivio en cítricos o jengibre, siempre con moderación." },
+            { q: "¿Qué hago si tengo fiebre alta?", a: "Consultar de inmediato a la guardia médica y tomar la temperatura para control." },
+            { q: "¿Es normal tener estrías en la panza o mamas?", a: "Sí, por el estiramiento rápido de la piel; la hidratación constante ayuda a prevenirlas parcialmente." },
+            { q: "¿Puedo trabajar con pantallas y compu todo el día?", a: "Sí, realizando pausas activas para estirar las piernas y cuidar la postura." },
+            { q: "¿Es seguro comer helados o dulces?", a: "Sí, controlando el nivel de azúcar para evitar diabetes gestacional." },
+            { q: "¿Cuándo debo empezar el curso de preparación para el parto?", a: "Generalmente entre la semana 24 y 28 de gestación." },
+            { q: "¿Puedo hablar con la partera ante cualquier duda mínima?", a: "¡Por supuesto! Para eso están los canales de consulta 24/7 y la asistente IA." }
         ];
 
         let currentOrgan = 'utero';
@@ -791,7 +895,7 @@
             });
 
             document.getElementById('clear-chat-btn').addEventListener('click', limpiarHistorialChat);
-            document.getElementById('calc-save-btn').addEventListener('click', calcularFUM);
+            document.getElementById('calcular-fum-btn').addEventListener('click', calcularFUM);
             
             document.getElementById('descargar-mochila-btn').addEventListener('click', () => {
                 alert("Descargando lista oficial para la mochila del sanatorio...");
@@ -946,10 +1050,7 @@
         document.getElementById('tone-criollo').addEventListener('click', () => setTone('criollo'));
         document.getElementById('tone-medico').addEventListener('click', () => setTone('medico'));
 
-        // ==========================================
-        // NUEVO MOTOR DE IA CONVERSACIONAL CONTEXTUAL
-        // Analiza intención, semanas, historial y evita repeticiones
-        // ==========================================
+        // MOTOR DE IA CONVERSACIONAL CONTEXTUAL DINÁMICO
         function enviarConsultaIA() {
             const input = document.getElementById('ia-input');
             const q = input.value.trim();
@@ -1035,7 +1136,6 @@
             let semaforoTexto = "VERDE: Quédate tranquila, es un síntoma habitual de adaptación en tu semana.";
             let texto = "";
 
-            // Evaluación de urgencia para el semáforo
             if (q.includes('sangre') || q.includes('sangrado') || q.includes('liquido') || q.includes('contraccion') || q.includes('no siento al bebé') || q.includes('dolor de cabeza') || q.includes('zumbido')) {
                 semaforo = "rojo";
                 semaforoTexto = "ROJO: Acudí a la guardia de inmediato para evaluación obstétrica urgente.";
@@ -1044,32 +1144,26 @@
                 semaforoTexto = "AMARILLO: Consultá con tu obstetra dentro de las próximas 24 horas.";
             }
 
-            // Detectar si el usuario hace referencia a algo anterior en el chat
             let referenciaAnterior = "";
             if (historial.length >= 3) {
                 const mensajePrevio = historial[historial.length - 3].mensaje.toLowerCase();
                 if (mensajePrevio.includes('dolor') || mensajePrevio.includes('molestia')) {
                     referenciaAnterior = "Sumado a la molestia que mencionabas antes,";
-                } else if (mensajePrevio.includes('comer') || mensajePrevio.includes('tomar')) {
-                    referenciaAnterior = "Continuando con lo que charlábamos sobre tus consumos,";
                 }
             }
 
             if (tono === 'criollo') {
                 if (q.includes('pinchazo') || q.includes('tiron') || q.includes('dolor') || q.includes('molestia')) {
-                    texto = `${referenciaAnterior} Es súper normal percibir esos tirones o molestias en esta **semana ${semana}**. El útero está ganando tamaño rápidamente y tracciona de los ligamentos redondos. Probá recostarte de costado izquierdo un rato para relajar la zona.`;
+                    texto = `${referenciaAnterior} Es completamente normal percibir esos tirones o molestias en esta **semana ${semana}**. El útero está ganando tamaño rápidamente y tracciona de los ligamentos redondos. Probá recostarte de costado izquierdo un rato para relajar la zona.`;
                 } else if (q.includes('mate') || q.includes('cafe') || q.includes('comer') || q.includes('beber')) {
                     texto = `${referenciaAnterior} En cuanto a lo que me consultás para la **semana ${semana}**, podés hacerlo de forma moderada cuidando de no exceder los límites diarios de cafeína o asegurando una buena cocción si es alimento.`;
                 } else if (q.includes('no siento al bebé') || q.includes('movimiento') || q.includes('patea')) {
-                    texto = `Comprendo tu inquietud. Acuéstate de tu lado izquierdo, tomá un vaso de agua fresca y tomate unos minutos para conectar. En la **semana ${semana}** a veces tienen periodos largos de sueño, pero ante la duda o si persiste la falta de movimientos, acercate a la guardia para quedarte en paz.`;
-                } else if (q.includes('normal') || q.includes('siento') || q.includes('pasa')) {
-                    texto = `Analizando tu consulta puntual sobre "${pregunta}" en la **semana ${semana}**, te cuento que tu cuerpo está atravesando un proceso de adaptación enorme. Si lo que sentís es leve, va y viene, y cede al descansar, forma parte de lo esperable. ¿Querés que detallemos algún otro síntoma?`;
+                    texto = `Comprendo tu inquietud. Acuéstate de tu lado izquierdo, tomá un vaso de agua fresca y tomate unos minutos para conectar. En la **semana ${semana}** a veces tienen periodos largos de sueño, pero ante la duda, acercate a la guardia.`;
                 } else {
-                    texto = `Estuve pensando en lo que me comentás respecto a "${pregunta}". Estando en la **semana ${semana}**, cada organismo reacciona distinto a los cambios hormonales. Hacé caso a tu intuición: si algo te genera desconfianza o dolor intenso, consultá con tu obstetra.`;
+                    texto = `Analizando tu consulta puntual sobre "${pregunta}" en la **semana ${semana}**, te cuento que tu cuerpo está atravesando un proceso de adaptación enorme. Si lo que sentís es leve, va y viene, y cede al descansar, forma parte de lo esperable. ¿Querés que detallemos algún otro síntoma?`;
                 }
             } else {
-                // Modo Clínico
-                texto = `Evaluando el cuadro clínico en el contexto de la **semana gestacional ${semana}**: "${pregunta}". Los signos descritos se alinean con las modificaciones fisiológicas del trimestre. Se sugiere reposo relativo, hidratación adecuada y estricto cumplimiento de pautas de alarma.`;
+                texto = `Evaluando el cuadro clínico en el contexto de la **semana gestacional ${semana}**: "${pregunta}". Los signos descritos se alinean con las modificaciones fisiológicas del trimestre. Se sugiere reposo relativo y vigilancia activa.`;
             }
 
             return { texto, semaforo, semaforoTexto };
@@ -1104,6 +1198,37 @@
                     icon.classList.toggle('rotate-180');
                 });
             });
+        }
+
+        // CALCULADORA FUM AVANZADA
+        function calcularFUM() {
+            const val = document.getElementById('fum-input-tab').value;
+            if(!val) {
+                alert("Por favor selecciona una fecha de última menstruación válida.");
+                return;
+            }
+            const fum = new Date(val);
+            const hoy = new Date();
+            const diffTime = Math.abs(hoy - fum);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            const semanas = Math.floor(diffDays / 7);
+            const diasSobrantes = diffDays % 7;
+
+            let trimestre = "1er Trimestre (Semanas 1 a 13)";
+            if(semanas >= 14 && semanas <= 27) trimestre = "2do Trimestre (Semanas 14 a 27)";
+            else if(semanas >= 28) trimestre = "3er Trimestre (Semanas 28 a 40+)";
+
+            const fpp = new Date(fum);
+            fpp.setDate(fpp.getDate() + 280);
+
+            document.getElementById('res-semanas').innerText = `${semanas} semanas${diasSobrantes > 0 ? ' y ' + diasSobrantes + ' días' : ''}`;
+            document.getElementById('res-trimestre').innerText = trimestre;
+            document.getElementById('res-fpp').innerText = fpp.toLocaleDateString();
+            document.getElementById('fum-tab-result').classList.remove('hidden');
+
+            if(semanas >= 1 && semanas <= 40) {
+                updateWeek(semanas);
+            }
         }
 
         // TIMER CONTRACCIONES
@@ -1167,30 +1292,6 @@
                 tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
             );
         }
-
-        function openCalculadoraModal() { document.getElementById('calculadora-modal').classList.remove('hidden'); }
-        function closeCalculadoraModal() { document.getElementById('calculadora-modal').classList.add('hidden'); }
-
-        function calcularFUM() {
-            const val = document.getElementById('fum-date').value;
-            if(!val) return;
-            const fum = new Date(val);
-            const hoy = new Date();
-            const diffTime = Math.abs(hoy - fum);
-            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-            const semanas = Math.floor(diffDays / 7);
-
-            const fpp = new Date(fum);
-            fpp.setDate(fpp.getDate() + 280);
-
-            document.getElementById('calc-weeks').innerText = `${semanas} Semanas`;
-            document.getElementById('calc-fpp').innerText = fpp.toLocaleDateString();
-            document.getElementById('fum-result').classList.remove('hidden');
-
-            if(semanas >= 1 && semanas <= 40) {
-                updateWeek(semanas);
-            }
-        }
     </script>
 </body>
-                                    </html>
+    </html>
